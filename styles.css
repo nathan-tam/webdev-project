@@ -1,1 +1,15 @@
+/* styling for the homepage */
+.homepageBody {
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    height: 100vh;              /* expands the body to the whole viewport */
+    justify-content: center;    /* this centers the text horizontally */
+    align-items: center;        /* this centers the text vertically */
+    flex-direction: column;     /* this stacks the button and text on top of each other */
+}
 
+#loginButton {
+    background-color: #A8415B;
+    border-radius: 10px;
+}
