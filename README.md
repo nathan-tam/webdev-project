@@ -23,7 +23,7 @@ The following are the main pages that make up our website and a brief descriptio
 * `readlist.html`, the page users access to see the books they’ve already catalogued.
 
 Below are the outlines of our functions used to make back end calls:
-`getBooks(string: search term)`
-`addBook(string: ISBN, string: username, string: password)`
-`rmBook(string: ISBN, string: username, string: password)`
-`listBooks(string: username, string: password)`
+* `getBooks(string: search term)`
+* `addBook(string: ISBN, string: username, string: password)`
+* `rmBook(string: ISBN, string: username, string: password)`
+* `listBooks(string: username, string: password)`
