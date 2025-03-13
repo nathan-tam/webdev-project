@@ -1,9 +1,9 @@
 # Group Project Proposal – NET3010
 ## Team Roles
-          Team Leader:            	              Jonathan Latkowcer
-          Back End Developer:             	    Ryan Marshall
-          Front End Designer:              	    Mikaela Cotter
-          Front End Developer:           	    Nathan Tam
+          Team Leader:                    Jonathan Latkowcer
+          Back End Developer:             Ryan Marshall
+          Front End Designer:             Mikaela Cotter
+          Front End Developer:            Nathan Tam
  
 ## Project Proposal:
           -A cataloguing web application that allows a user to catalogue books
