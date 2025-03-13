@@ -1,6 +1,6 @@
 # Group Project Proposal – NET3010
 ## Team Roles
-          Team Leader:            	           	Jonathan Latkowcer
+          Team Leader:            	              Jonathan Latkowcer
           Back End Developer:             	    Ryan Marshall
           Front End Designer:              	    Mikaela Cotter
           Front End Developer:           	    Nathan Tam
