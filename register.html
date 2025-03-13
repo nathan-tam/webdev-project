@@ -4,38 +4,26 @@
         <link rel="stylesheet" href="registrationStyles.css">
         <title>Login/Register</title>
     </head>
-    <body>
-        <header>
-            <h1>Tam Industries</h1>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">Our Team</a>
-                <a href="products.html">Products</a>
-            </nav>
-        </header>
-        <div class="registration">
+    <body class="registrationBody">
+        <a href="login.html"><button id="loginButton">Go Back</button></a>
+        <div class="registrationContainer">
+            <h2>Register</h2>
             <form id="registrationForm">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name">
-                <span class="error" id="nameError"></span>
+                <label for="username">Username:</label>
+                <input type="text" id="usernameField" name="username">
+                <span class="error" id="usernameError"></span>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
                 <span class="error" id="emailError"></span>
 
-                <label for="address">Mailing Address:</label>
-                <input type="text" id="address" name="address">
-                <span class="error" id="addressError"></span>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <span class="error" id="passwordError"></span>
 
-                
-                <label>How did you hear about us?</label>
-                <label><input type="radio" name="referral" value="social">Social Media</label>
-                <label><input type="radio" name="referral" value="ads">Advertising</label>
-                <label><input type="radio" name="referral" value="word">Word of Mouth</label>
-                <label><input type="radio" name="referral" value="search">Internet Search</label>
-                <label><input type="radio" name="referral" value="other" id="otherReferral">Other</label>
-                <input type="text" id="otherText" name="otherText" placeholder="Please specify" style="display: none;">
-                <span class="error" id="referralError"></span>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword">
+                <span class="error" id="confirmError"></span>
                 
                 <button type="button" onclick="validateForm()">Register</button>
             </form>
@@ -44,57 +32,48 @@
             function validateForm() {
                 let name = document.getElementById("name").value;
                 let email = document.getElementById("email").value;
-                let address = document.getElementById("address").value;
-                let referralType = null;
-                let referralOptions = document.getElementsByName("referral");
-                let otherReferral = document.getElementById("otherText").value;
-
-                for (let i = 0; i < referralOptions.length; i++) {
-                    if (referralOptions[i].checked) {
-                        referralType = referralOptions[i];
-                        break;
-                    }
-                }
-
+                let password = document.getElementById("password").value;
+                let confirmPassword = document.getElementById("confirmPassword").value;
+        
                 let nameError = document.getElementById("nameError");
                 let emailError = document.getElementById("emailError");
-                let addressError = document.getElementById("addressError");
-                let referralError = document.getElementById("referralError");
-
-                // clear previous errors
+                let passwordError = documnet.getElementById("passwordError");
+                let confirmError = document.getElementById("confirmError");
+                
+                // clear the previous errors
                 nameError.textContent = "";
                 emailError.textContent = "";
-                addressError.textContent = "";
-                referralError.textContent = "";
-
+                confirmError.textContent = "";
+                
                 let valid = true;
 
+                // checks if the username field is empty
                 if (name === "") {
                     nameError.textContent = "Name is required.";
                     valid = false;
                 }
 
+                // checks if email field is empty
                 if (email === "") {
                     emailError.textContent = "Email is required.";
                     valid = false;
+                // checks if the email is in a valid format
                 } else if (!validateEmail(email)) {
                     emailError.textContent = "Invalid email address.";
                     valid = false;
                 }
-
-                if (address === "") {
-                    addressError.textContent = "Address is required.";
+                
+                // checks if the password field is empty
+                if (password === "") {
+                    passwordError.textContent("Password is required!");
                     valid = false;
-                } else if (!validateAddress(address)) {
-                    addressError.textContent = "Invalid postal code.";
+                // checks if the confirm password field is empty
+                } else if (confirmPassword === "") {
+                    confirmError.textContent("Password confirmation is required!");
                     valid = false;
-                }
-
-                if (!referralType) {
-                    referralError.textContent = "Referral method is required.";
-                    valid = false;
-                } else if (referralType.value == "other" && otherReferral === "") {
-                    referralError.textContent = "Please specify your referral method.";
+                // checks if the password matches the password confirmation
+                } else if (password !== confirmPassword) {
+                    confirmError.textContent = "The passwords do not match!"
                     valid = false;
                 }
 
@@ -107,12 +86,6 @@
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
                 return emailPattern.test(email);
-            }
-
-            function validateAddress(address) {
-                const postalPattern = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/;
-
-                return postalPattern.test(address);
             }
         </script>
     </body>
