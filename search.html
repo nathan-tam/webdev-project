@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="main-stylesheet.css">
         <title>Search</title>
     </head>
-    <body class="searchBody">
-        <header>
-            <nav>
-                <a id="diaryButton" href="diary.html">diary</a>
-            </nav>
-            <button>log out</button>
-        </header>
-        <h1 id="searchText">search for a book!</h1>
-        <input type="text" id="searchBar" placeholder="Enter book title...">
+
+    <header class="pageHeader">
+        <a href="login.html"><button id="signOut">Sign Out</button></a>
+        <h1 id="bookedLogo"><a href="bookshelf.html">booked</a></h1>
+    </header>
+
+    <body class="pageBody">
+        <input id="searchBar" type="text" id="searchBar" placeholder="Enter book title...">
     </body>
 </html>

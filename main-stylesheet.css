@@ -1,0 +1,163 @@
+/*-------------------------------------------------------------------------------------*/
+/*                                  Common CSS Elements                                */
+/*-------------------------------------------------------------------------------------*/
+/*Styling for homepage*/
+#background {
+    background-color: #FFF4E9;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#441752;
+}
+
+/*Styling for header*/
+.pageHeader {
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #441752;
+    background-color: #D4BEE4;
+    border-radius: 5px;
+    padding: 10px;
+    flex-direction: column;
+}
+
+/*Remove default text decoration*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Stylization for signout button in header*/
+.pageHeader #signOut {
+    display: flex;
+    margin-left: auto;
+
+    background-color: #ca637d;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#441752;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    padding: 6px 15px;
+}
+
+.pageHeader #bookedLogo {
+    display: flex;
+    margin-bottom: auto;
+}
+
+/*Style all input boxes this way */
+input {
+    border-radius: 50px;
+    border: none;
+    padding: 8px 26px;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #F4F4F4;
+    color: #000000;
+    font-weight: bold;
+}
+
+/*Style all buttons this way*/
+button {
+    display: flex;
+    background-color: #ca637d;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#441752;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    padding: 8px 26px;
+    font-size: 15px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*                               CSS For Welcome Page                                  */
+/*-------------------------------------------------------------------------------------*/
+#homepageBody {
+    display: flex;
+    background-color: #D4BEE4;
+    font-size: 30px;
+    color: #441752;
+
+    height: 95vh;              /* expands the body to the whole viewport */
+    justify-content: center;    /* this centers the text horizontally */
+    align-items: center;        /* this centers the text vertically */
+    flex-direction: column;     /* this stacks the button and text on top of each other */
+}
+
+/*Fix spacing between welcome banner and buttons*/
+#welcomeBanner {
+    margin: 0px;
+}
+
+/*Places two buttons side by side under the welcome banner*/
+#buttonContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+/*Fix spacing between buttons*/
+.welcomeButton {
+    /*Top Right Bottom Left*/
+    margin: 10px 20px 0px 20px;
+}
+/*-------------------------------------------------------------------------------------*/
+/*                            CSS for Registration Page                                */
+/*-------------------------------------------------------------------------------------*/
+.registrationContainer {
+    display: flex;
+    margin-left: auto;
+    text-align: right;
+    margin-top: 100px;
+    justify-content: center;    /* this centers the text horizontally */
+    align-items: center;        /* this centers the text vertically */
+    flex-direction: column;     /* this stacks the button and text on top of each other */
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*                                  CSS for Login Page                                 */
+/*-------------------------------------------------------------------------------------*/
+#loginContainer {
+    /*Sizing and color of the login window*/
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    padding: 10px;
+
+    /*Center items on the page*/
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+
+    padding: 20px;
+}
+
+/*Stack items in form*/
+#loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Fix spacing*/
+.loginElements {
+    margin: 5px;
+}
+
+/*Space out login button and shrink down to size*/
+#loginButton {
+    margin: 5px;
+    
+}
+
+
+/*-------------------------------------------------------------------------------------*/
+/*                               CSS For Bookshelf Page                                */
+/*-------------------------------------------------------------------------------------*/
+.bookshelfBody {
+    display: flex;
+
+    justify-content: center;    /* this centers the text horizontally */
+    align-items: center;        /* this centers the text vertically */
+    flex-direction: column;     /* this stacks the button and text on top of each other */
+}
