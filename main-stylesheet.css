@@ -67,7 +67,7 @@ button {
     font-weight: bold;
     border-radius: 50px;
     border: none;
-    padding: 8px 26px;
+    padding: 6px 26px;
     font-size: 15px;
 }
 
@@ -80,7 +80,7 @@ button {
     font-size: 30px;
     color: #441752;
 
-    height: 95vh;              /* expands the body to the whole viewport */
+    margin-top: 20%;
     justify-content: center;    /* this centers the text horizontally */
     align-items: center;        /* this centers the text vertically */
     flex-direction: column;     /* this stacks the button and text on top of each other */
@@ -95,6 +95,8 @@ button {
 #buttonContainer {
     display: flex;
     flex-direction: row;
+    justify-content: center;    /* this centers the text horizontally */
+    align-items: center;        /* this centers the text vertically */
 }
 
 /*Fix spacing between buttons*/
@@ -105,14 +107,44 @@ button {
 /*-------------------------------------------------------------------------------------*/
 /*                            CSS for Registration Page                                */
 /*-------------------------------------------------------------------------------------*/
-.registrationContainer {
+#registrationFormContainer {
+        /*Sizing and color of the login window*/
+        display: flex;
+        flex-direction: column;
+    
+        /*Center items on the page*/
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+    
+        padding: 20px;
+}
+
+#registrationBackground {
     display: flex;
-    margin-left: auto;
-    text-align: right;
-    margin-top: 100px;
-    justify-content: center;    /* this centers the text horizontally */
-    align-items: center;        /* this centers the text vertically */
-    flex-direction: column;     /* this stacks the button and text on top of each other */
+    flex-direction: column;
+    background-color: #D4BEE4;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.registrationItem {
+    display: flex;
+}
+
+.registerLabel {
+    align-items: start;
+    margin: 5px 10px 10px 0px;
+}
+
+.registerInput {
+    align-items: end;
+    margin: 0px 0px 10px auto;
+}
+
+#registerButton {
+    align-self: center;
+    margin-top: 10px;
 }
 
 /*-------------------------------------------------------------------------------------*/
@@ -122,15 +154,19 @@ button {
     /*Sizing and color of the login window*/
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
-    padding: 10px;
 
     /*Center items on the page*/
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
 
     padding: 20px;
+}
+
+#loginBackground {
+    background-color: #D4BEE4;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 /*Stack items in form*/
@@ -142,22 +178,62 @@ button {
 /*Fix spacing*/
 .loginElements {
     margin: 5px;
+    margin-top:20px;
+    margin-bottom: 10px;
 }
 
 /*Space out login button and shrink down to size*/
 #loginButton {
-    margin: 5px;
-    
+    align-self: center;
+    margin-top: 20px;
 }
-
 
 /*-------------------------------------------------------------------------------------*/
 /*                               CSS For Bookshelf Page                                */
 /*-------------------------------------------------------------------------------------*/
-.bookshelfBody {
+#addBook {
+    /*Sizing and color of the login window*/
     display: flex;
+    flex-direction: column;
 
-    justify-content: center;    /* this centers the text horizontally */
-    align-items: center;        /* this centers the text vertically */
-    flex-direction: column;     /* this stacks the button and text on top of each other */
+    /*Center items on the page*/
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+
 }
+
+#bookshelfButton {
+    padding: 10px 32px;
+    font-size: 22px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*                                CSS For Search Page                                  */
+/*-------------------------------------------------------------------------------------*/
+#searchBar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    /*Center items on the page*/
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+#searchBarItem {
+    /*Top Right Bottom Left*/
+    margin: 10px 20px 0px 20px;
+    padding: 10px 32px;
+    font-size: 22px;
+    background-color: #cfcfcf;
+    width: 50%;
+}
+
+#searchButton {
+    /*Top Right Bottom Left*/
+    margin: 10px 20px 0px 20px;
+    padding: 10px 32px;
+    font-size: 22px;
+}   
