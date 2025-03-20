@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="styles.css">
-        <title>Diary</title>
+        <link rel="stylesheet" href="main-stylesheet.css">
+        <title>Bookshelf</title>
     </head>
-    <body class="diaryBody">
-        <header>
-            <button>log out</button>
+
+    <body>
+        <header class="pageHeader">
+            <a href="login.html"><button id="signOut">Sign Out</button></a>
+            <h1 id="bookedLogo">booked</h1>
         </header>
-        <a href="search.html"><button id="searchButton">Add Book +</button></a>
+
+        <main>
+            <div id="addBook">
+                <a href="search.html"><button id="bookshelfButton">Add Book +</button></a>
+            </div>
+        </main>
     </body>
     <script>
 

@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="main-stylesheet.css">
         <title>Login</title>
     </head>
-    <body class="loginBody">
-        <a href="index.html"><button id="homepageButton">Go Back</button></a>
-        <div class="loginContainer">
-            <h2>Login</h2>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="register.html">Register here</a></p>
-        </div>
+
+    <body>
+        <header class="pageHeader">
+            <a href="index.html"><button id="signOut">Go Back</button></a>
+            <h1 id="bookedLogo">booked</h1>
+        </header>
+        
+        <main>
+            <div id="loginContainer">
+                <div id="loginBackground">
+                    <form id="loginForm">
+                        <input class="loginElements" type="text" id="username" placeholder="Username">
+                        <input class="loginElements" type="password" id="password" placeholder="Password">
+                        <button id="loginButton" type="submit">Login</button>
+                    </form>
+                    <p class="loginElements">Don't have an account? <a href="register.html"><u>Register Here</u></a></p>  
+                </div>
+            </div>
+        </main>
     </body>
 </html>
