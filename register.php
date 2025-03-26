@@ -41,7 +41,6 @@
                 </form>
             </div>
         </main>
-        
         <script>
             function validateForm() {
                 let name = document.getElementById("name").value;
@@ -68,14 +67,14 @@
                 }
 
                 // checks if email field is empty
-                if (email === "") {
-                    emailError.textContent = "Email is required.";
-                    valid = false;
+                //if (email === "") {
+                //    emailError.textContent = "Email is required.";
+                //    valid = false;
                 // checks if the email is in a valid format
-                } else if (!validateEmail(email)) {
-                    emailError.textContent = "Invalid email address.";
-                    valid = false;
-                }
+                //} else if (!validateEmail(email)) {
+                //    emailError.textContent = "Invalid email address.";
+                //    valid = false;
+                //}
                 
                 // checks if the password field is empty
                 if (password === "") {
@@ -102,5 +101,19 @@
                 return emailPattern.test(email);
             }
         </script>
+        <?php
+            include_once("connector.php");
+
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            $dbConnection = databaseConnection();
+            $query = "INSERT INTO users(username, password) VALUES ('$username', '$password')";
+            $doQuery = executeQuery($query, $dbConnection);
+
+            closeConnection($dbConnection);
+        ?>
     </body>
 </html>
