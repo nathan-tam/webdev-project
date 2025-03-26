@@ -3,8 +3,9 @@ function databaseConnection() {
     $server = "localhost";
     $dbUser = "root";
     $dbPassword = "";
+    $dbName = "bookedbased";
 
-    $connection mysqli_connect($server, $dbUser, $dbPassword);
+    $connection = mysqli_connect($server, $dbUser, $dbPassword, $dbName);
 
     if (!$connection) {
         exit("Connection failed: " . mysqli_connect_error());
@@ -18,6 +19,6 @@ function closeConnection($connection) {
 }
 
 function executeQuery($query, $connection) {
-    return my_sqli_query($connection, $query);
+    return mysqli_query($connection, $query);
 }
 ?>
