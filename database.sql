@@ -1,9 +1,17 @@
-CREATE DATABASE bookedDatabase;
+CREATE DATABASE bookedbased;
 
-USE bookedDatabase;
+USE bookedbased;
 
 CREATE TABLE users (
   userID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   username VARCHAR(32) UNIQUE NOT NULL,
   passwordHash VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE books {
+  ISBN VARCHAR(255) PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  coverImage VARCHAR(255) NOT NULL
+};
