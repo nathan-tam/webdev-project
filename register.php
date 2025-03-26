@@ -5,13 +5,11 @@
         <link rel="stylesheet" href="main-stylesheet.css">
         <title>Login/Register</title>
     </head>
-
     <body>
         <header class="pageHeader">
-            <a href="index.html"><button id="signOut">Go Back</button></a>
+            <a href="index.php"><button id="signOut">Go Back</button></a>
             <h1 id="bookedLogo">booked</h1>
         </header>
-
         <main>
             <div id="registrationFormContainer">
                 <form id="registrationBackground">

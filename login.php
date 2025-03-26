@@ -5,10 +5,9 @@
         <link rel="stylesheet" href="main-stylesheet.css">
         <title>Login</title>
     </head>
-
     <body>
         <header class="pageHeader">
-            <a href="index.html"><button id="signOut">Go Back</button></a>
+            <a href="index.php"><button id="signOut">Go Back</button></a>
             <h1 id="bookedLogo">booked</h1>
         </header>
         <main>
@@ -19,7 +18,7 @@
                         <input class="loginElements" type="password" id="password" placeholder="Password">
                         <button id="loginButton" type="submit">Login</button>
                     </form>
-                    <p class="loginElements">Don't have an account? <a href="register.html"><u>Register Here</u></a></p>  
+                    <p class="loginElements">Don't have an account? <a href="register.php"><u>Register Here</u></a></p>  
                 </div>
             </div>
         </main>

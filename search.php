@@ -7,8 +7,8 @@
     </head>
     <body>
         <header class="pageHeader">
-            <a href="login.html"><button id="signOut">Sign Out</button></a>
-            <h1 id="bookedLogo"><a href="bookshelf.html">booked</a></h1>
+            <a href="login.php"><button id="signOut">Sign Out</button></a>
+            <h1 id="bookedLogo"><a href="bookshelf.php">booked</a></h1>
         </header>
         <main>
             <div id="searchBar">

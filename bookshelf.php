@@ -8,13 +8,13 @@
 
     <body>
         <header class="pageHeader">
-            <a href="login.html"><button id="signOut">Sign Out</button></a>
+            <a href="login.php"><button id="signOut">Sign Out</button></a>
             <h1 id="bookedLogo">booked</h1>
         </header>
 
         <main>
             <div id="addBook">
-                <a href="search.html"><button id="bookshelfButton">Add Book +</button></a>
+                <a href="search.php"><button id="bookshelfButton">Add Book +</button></a>
             </div>
         </main>
     </body>
