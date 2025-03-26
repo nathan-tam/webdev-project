@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html id="background" lang="en">
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
@@ -17,7 +18,4 @@
             </div>
         </main>
     </body>
-    <script>
-
-    </script>
 </html>
