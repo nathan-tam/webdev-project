@@ -17,7 +17,7 @@
         $dbConnection = databaseConnection();
 
         // get all the users from the database
-        $query = "SELECT username, passwordHash, FROM bookbased.users";
+        $query = "SELECT username, passwordHash FROM users";
         $doQuery = executeQuery($query, $dbConnection);
 
         // loop through the results of the query and check for credential match
@@ -30,8 +30,8 @@
 
         closeConnection($dbConnection);
     } else {
-        die("Invalid request.");
+        die("Invalid Login Request.");
     }
 
-    header("Location: bookself.php")
+    header("Location: bookshelf.php")
 ?>
