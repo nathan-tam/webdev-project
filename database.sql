@@ -8,10 +8,10 @@ CREATE TABLE users (
   passwordHash VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE books {
+CREATE TABLE books (
   ISBN VARCHAR(255) PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
   author VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
   coverImage VARCHAR(255) NOT NULL
-};
+);
