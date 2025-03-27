@@ -22,7 +22,7 @@
 
         // loop through the results of the query and check for credential match
         while ($row = mysqli_fetch_assoc($doQuery)) {
-            if ($row["username"] == $_POST["username"] && $row["passwordHash"] == $_POST["password"]) {
+            if ($row["username"] == $username && $row["passwordHash"] == $password) {
                 $_SESSION["username"] = $username;
                 break;
             }
@@ -33,6 +33,5 @@
         die("Invalid request.");
     }
 
-    header("Location: login.php")
-
+    header("Location: bookself.php")
 ?>
