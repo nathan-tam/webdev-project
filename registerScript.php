@@ -24,5 +24,4 @@
     }
 
     header("Location: login.php")
-
 ?>
