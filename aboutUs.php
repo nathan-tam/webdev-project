@@ -7,7 +7,7 @@
     </head>
 
     <header class="pageHeader">
-        <a href="login.html"><button id="signOut">Sign Out</button></a>
+        <a href="index.php"><button id="signOut">Go Back</button></a>
         <h1 id="bookedLogo">booked</h1>
     </header>
 

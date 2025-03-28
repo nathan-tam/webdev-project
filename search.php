@@ -20,14 +20,11 @@
             <h1 id="bookedLogo"><a href="bookshelf.php">booked</a></h1>
         </header>
         <main>
-            <div id="searchBar">
-                
-                <form action="search.php" method="GET">
-                    <input id="searchBarItem" type="text" name="query" placeholder="Enter book title...">
-                    <button id="searchButton" type="submit">Search &#x1F50D;</button>
-                </form>
-
-            </div>
+               
+            <form id="searchBar" action="search.php" method="GET">
+                <input id="searchBarItem" type="text" name="query" placeholder="Enter book title...">
+                <button id="searchButton" type="submit">Search &#x1F50D;</button>
+            </form>
 
             <h2>Search Results for "<?php echo htmlspecialchars($_GET["query"]); ?>"</h2>
             <div id="results">
