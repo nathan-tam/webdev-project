@@ -11,6 +11,8 @@
             <div id="buttonContainer">
                 <a href="login.php"><button class="welcomeButton">Login</button></a>
                 <a href="register.php"><button class="welcomeButton">Sign Up</button></a>
+                <a href="aboutUs.php"><button class="welcomeButton">About Us</button></a>
+
             </div>
         </main>
     </body>

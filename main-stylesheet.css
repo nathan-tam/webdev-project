@@ -188,6 +188,7 @@ button {
     margin-top: 20px;
 }
 
+
 /*-------------------------------------------------------------------------------------*/
 /*                               CSS For Bookshelf Page                                */
 /*-------------------------------------------------------------------------------------*/
@@ -297,4 +298,39 @@ button {
     align-items: center;
     padding: 10px 32px;
     font-size: 18px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*                                    CSS For About Us                                 */
+/*-------------------------------------------------------------------------------------*/
+/*Holds all the books in the search result/library*/
+#aboutUsContainer {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*Holds the contents of one specific book including cover, author, title, etc.*/
+.aboutUsItem {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #cfcfcf;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.aboutUsImage {
+    height: 15%;
+    width: 15%;
+}
+
+
+/*-------------------------------------------------------------------------------------*/
+/*                                    CSS For Mobile Support                           */
+/*-------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 640px)  {
+
 }
