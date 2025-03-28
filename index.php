@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php session_start();?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
@@ -12,7 +12,6 @@
                 <a href="login.php"><button class="welcomeButton">Login</button></a>
                 <a href="register.php"><button class="welcomeButton">Sign Up</button></a>
                 <a href="aboutUs.php"><button class="welcomeButton">About Us</button></a>
-                <a href="search.php"><button class="welcomeButton">Search books</button></a>
             </div>
         </main>
     </body>
