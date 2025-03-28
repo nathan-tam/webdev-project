@@ -8,15 +8,16 @@
 
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
-        <title>Booked</title>
+        <title>booked</title>
+            <meta charset="UTF-8">
+			<meta name="author" content="Jonathan Latkowcer">
+			<meta name="email" content="latk0004@algonquincollege.com">
     </head>
 
 
     <body>
-    <header class="pageHeader">
-        <a href="login.php"><button id="signOut">Sign Out</button></a>
-        <h1 id="bookedLogo">booked</h1>
-    </header>
+
+    <?php include('modules/mod-header.php'); ?>
 
         <main>
             <div id="aboutUsContainer">
