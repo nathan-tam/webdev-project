@@ -1,5 +1,15 @@
 <?php session_start();?>
 
+<?php
+    // If user is logged in, send them to their library automatically -JL
+    if (isset($_SESSION['username']))
+    {
+        header("Location: bookshelf.php");
+        exit();
+    }
+?>
+
+
 <!DOCTYPE html>
 
 <html id="background" lang="en">
@@ -38,7 +48,7 @@
                 const usernamePattern = /^[a-zA-Z0-9_]+$/;
 
                 if (username === "") {
-                    nameError.textContent = "Name is required.";
+                    nameError.textContent = "Username is required.";
                     valid = false;
                 } else if (!usernamePattern.test(username)) {
                     nameError.textContent = "Invalid username.";

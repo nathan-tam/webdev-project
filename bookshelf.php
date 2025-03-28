@@ -1,7 +1,7 @@
-<?php
-    session_start();
+<?php session_start(); ?>
 
-    // If there's no user set, kick the browser back to the index.php login page -JL
+<?php
+    // If there's no user set, kick the browser back to the index.php page -JL
     if (!isset($_SESSION["username"])) {
         //echo "Warning! Not Logged In."; // For testing purposes only. Remove later.
 

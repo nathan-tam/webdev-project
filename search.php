@@ -1,5 +1,17 @@
+<?php session_start(); ?>
+
 <?php
-    session_start();
+    // If there's no user set, kick the browser back to the index.php page -JL
+    if (!isset($_SESSION["username"])) {
+        //echo "Warning! Not Logged In."; // For testing purposes only. Remove later.
+
+        header("Location: index.php");    // Production code for when testing is finished.
+        exit();
+    }
+?>
+
+
+<?php
     $query = urlencode($_GET["query"]);
     $apiKey = "AIzaSyCN0rx7SH_UZjiW1yNeeB-fOyjh0khMbc8";
     $url = "https://www.googleapis.com/books/v1/volumes?q={$query}&maxResults=5&key={$apiKey}";

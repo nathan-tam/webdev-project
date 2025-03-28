@@ -1,5 +1,16 @@
-<!DOCTYPE html>
 <?php session_start();?>
+
+<?php
+    // If user is logged in, send them to their library automatically -JL
+    if (isset($_SESSION['username']))
+    {
+        header("Location: bookshelf.php");
+        exit();
+    }
+?>
+
+<!DOCTYPE html>
+
 <html id="background" lang="en">
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
@@ -9,7 +20,7 @@
 
         <!-- Header module on all pages (booked logo and rightside link) -->
         <?php include('modules/mod-header.php'); ?>
-        
+
         <main>
             <div id="registrationFormContainer">
                 <form id="registrationBackground" method="POST" action="registerScript.php">

@@ -17,7 +17,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
-        <title>Booked</title>
+        <title>booked</title>
     </head>
     <body id="homepageBody">
         <main>
