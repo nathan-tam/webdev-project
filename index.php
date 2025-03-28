@@ -3,7 +3,7 @@
 <?php
 
     // Use the variable below for testing.
-    //$_SESSION['username'] = null; 
+    //$_SESSION['username'] = 'jonathan'; 
 
     // If user is logged in, send them to their library automatically
     if (isset($_SESSION['username']))

@@ -17,6 +17,7 @@
 
     <body>
 
+    <!-- Header module on all pages (booked logo and rightside link) -->
     <?php include('modules/mod-header.php'); ?>
 
         <main>

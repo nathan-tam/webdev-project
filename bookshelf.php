@@ -14,10 +14,10 @@
         <title>Bookshelf</title>
     </head>
     <body>
-        <header class="pageHeader">
-            <a href="login.php"><button id="signOut">Sign Out</button></a>
-            <h1 id="bookedLogo">booked</h1>
-        </header>
+        
+        <!-- Header module on all pages (booked logo and rightside link) -->
+         <?php include('modules/mod-header.php'); ?>
+
         <main>
             <div id="welcomeMessage">
                 <h2 id="welcomeText">Welcome, <?php echo $_SESSION["username"]; ?>!</h2>
