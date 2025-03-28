@@ -23,7 +23,7 @@
             <div id="searchBar">
                 
                 <form action="search.php" method="GET">
-                    <input id="searchBarItem" type="text" name="query" placeholder="Enter book title..." required>
+                    <input id="searchBarItem" type="text" name="query" placeholder="Enter book title...">
                     <button id="searchButton" type="submit">Search &#x1F50D;</button>
                 </form>
 
