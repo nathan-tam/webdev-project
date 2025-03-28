@@ -1,7 +1,16 @@
 <?php
     session_start();
 
+
+     // TEST CODE FOR NON-DB USER: -JL
+    if ($_POST['username'] == "test"){
+        $_SESSION["username"] = "test";
+        header("Location: ../bookshelf.php");
+        exit();
+    }
+
     include_once("connector.php");
+
 
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];

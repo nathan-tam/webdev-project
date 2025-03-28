@@ -1,5 +1,7 @@
-<!DOCTYPE html>
 <?php session_start();?>
+
+<!DOCTYPE html>
+
 <html id="background" lang="en">
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
@@ -9,11 +11,12 @@
 
         <!-- Header module on all pages (booked logo and rightside link) -->
         <?php include('modules/mod-header.php'); ?>
-        
+
         <main>
             <div id="loginContainer">
                 <div id="loginBackground">
-                    <form id="loginForm" method="POST" action="loginScript.php">
+                    <?php //You can use "test" as a username to bypass the database login. ?>
+                    <form id="loginForm" method="POST" action="scripts/loginScript.php">
                         <input class="loginElements" type="text" id="username" name="username" placeholder="Username">
                         <span class="error" id="nameError"></span>
                         <input class="loginElements" type="password" id="password" name="password" placeholder="Password">
