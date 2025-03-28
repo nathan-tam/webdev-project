@@ -18,12 +18,6 @@
                         <input class="registerInput" type="text" id="username" name="username" placeholder="Username">
                         <span class="error" id="usernameError"></span>
                     </div>
-                    
-                    <div class="registrationItem">
-                        <label class="registerLabel" for="email">Email:</label>
-                        <input class="registerInput" type="email" id="email" name="email" placeholder="Email">
-                        <span class="error" id="emailError"></span>
-                    </div>
 
                     <div class="registrationItem">
                         <label class="registerLabel" for="password">Password:</label>
@@ -36,7 +30,6 @@
                         <input class="registerInput" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
                         <span class="error" id="confirmError"></span>
                     </div>
-
                     <button id="registerButton" type="button" onclick="validateForm()" value="submit">Register</button>
                 </form>
             </div>
@@ -44,18 +37,15 @@
         <script>
             function validateForm() {
                 let name = document.getElementById("username").value;
-                let email = document.getElementById("email").value;
                 let password = document.getElementById("password").value;
                 let confirmPassword = document.getElementById("confirmPassword").value;
         
                 let nameError = document.getElementById("usernameError");
-                let emailError = document.getElementById("emailError");
                 let passwordError = document.getElementById("passwordError");
                 let confirmError = document.getElementById("confirmError");
                 
                 // clear the previous errors
                 nameError.textContent = "";
-                emailError.textContent = "";
                 confirmError.textContent = "";
                 
                 let valid = true;
@@ -70,16 +60,6 @@
                     nameError.textContent = "Invalid username.";
                     valid = false;
                 }
-
-                // checks if email field is empty
-                //if (email === "") {
-                //    emailError.textContent = "Email is required.";
-                //    valid = false;
-                // checks if the email is in a valid format
-                //} else if (!validateEmail(email)) {
-                //    emailError.textContent = "Invalid email address.";
-                //    valid = false;
-                //}
                 
                 // checks if the password field is empty
                 if (password === "") {
@@ -98,12 +78,6 @@
                 if (valid) {
                     document.getElementById("registrationBackground").submit();
                 }
-            }
-
-            function validateEmail(email) {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                return emailPattern.test(email);
             }
         </script>
     </body>
