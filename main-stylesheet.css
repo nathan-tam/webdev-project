@@ -332,4 +332,43 @@ button {
 /*-------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 640px)  {
 
+}   
+/*
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
+
+.bookItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    background-color: #D4BEE4;
+    padding: 20px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bookItem img {
+    margin-right: 20px;
+    max-width: 120px;
+    box-shadow: 11px 10px 29px -15px rgba(0,0,0,0.75);
+    height: auto;
+}
+
+.bookItem h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.bookItem p {
+    font-size: 14px;
+    color: #333;
+}
+*/

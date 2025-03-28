@@ -12,26 +12,29 @@
             die("Invalid username.");
         }
 
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
         $dbConnection = databaseConnection();
 
-        // get all the users from the database
-        $query = "SELECT username, passwordHash, FROM bookbased.users";
+        // query for the user with the given username
+        $query = "SELECT passwordHash FROM users WHERE username = '$username';";
         $doQuery = executeQuery($query, $dbConnection);
 
-        // loop through the results of the query and check for credential match
-        while ($row = mysqli_fetch_assoc($doQuery)) {
-            if ($row["username"] == $username && $row["passwordHash"] == $password) {
+        $row = mysqli_fetch_assoc($doQuery);
+
+        if ($row) {
+            // verify the password
+            if (password_verify($password, $row["passwordHash"])) {
                 $_SESSION["username"] = $username;
-                break;
+            } else {
+                die("Invalid password.");
             }
+        } else {
+            die("User not found.");
         }
 
         closeConnection($dbConnection);
     } else {
-        die("Invalid request.");
+        die("Invalid Login Request.");
     }
 
-    header("Location: bookself.php")
+    header("Location: bookshelf.php")
 ?>

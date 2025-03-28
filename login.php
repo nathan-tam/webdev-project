@@ -14,18 +14,18 @@
             <div id="loginContainer">
                 <div id="loginBackground">
                     <form id="loginForm" method="POST" action="loginScript.php">
-                        <input class="loginElements" type="text" id="username" placeholder="Username">
+                        <input class="loginElements" type="text" id="username" name="username" placeholder="Username">
                         <span class="error" id="nameError"></span>
-                        <input class="loginElements" type="password" id="password" placeholder="Password">
+                        <input class="loginElements" type="password" id="password" name="password" placeholder="Password">
                         <span class="error" id="passwordError"></span>
-                        <button id="loginButton" type="submit" onclick="validateForm()>Login</button>
+                        <button id="loginButton" type="submit" onclick="validateForm()">Login</button>
                     </form>
                     <p class="loginElements">Don't have an account? <a href="register.php"><u>Register Here</u></a></p>  
                 </div>
             </div>
         </main>
         <script>
-            function onClick() {
+            function validateForm() {
                 let username = document.getElementById("username").value;
                 let password = document.getElementById("password").value;
 
