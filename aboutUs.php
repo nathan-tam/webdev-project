@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php session_start();?>
+<!DOCTYPE html>
 <html id="background" lang="en">
     <head>
         <link rel="stylesheet" href="main-stylesheet.css">
@@ -18,9 +18,9 @@
                     <div class="aboutUsItem">
                         <img class="aboutUsImage" src="bookNoCover.png" alt="Purple book cover with dark purple lines to indicate a book with no cover">
                         <div class="bookContents">
-                            <p class="bookTitle">Title</p>
-                            <p class="bookDescription">Author</p>
-                            <p class="bookDescription">Description</p>
+                            <p class="bookTitle">Jonathan Latkowcer</p>
+                            <p class="bookDescription">Team Leader</p>
+                            <p class="bookDescription">Information about me!</p>
                         </div>
                     </div>
                 </div>
