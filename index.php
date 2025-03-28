@@ -1,4 +1,18 @@
 <?php session_start();?>
+
+<?php
+
+    // Use the variable below for testing.
+    //$_SESSION['username'] = null; 
+
+    // If user is logged in, send them to their library automatically
+    if (isset($_SESSION['username']))
+    {
+        header("Location: bookshelf.php");
+        exit();
+    } 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
