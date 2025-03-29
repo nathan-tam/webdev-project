@@ -31,24 +31,29 @@
 
         $row = mysqli_fetch_assoc($doQuery);
 
+
+        // Added some extra error handling -- sets a SESSION variable that shows on login page -JL
+        // Also kicks the user back to the login page
         if ($row) {
             // verify the password
             if (password_verify($password, $row["passwordHash"])) {
                 $_SESSION["username"] = $username;
             } else {
-                $_SESSION["error"] = "Invalid password.";
+                $_SESSION["loginerror"] = "Invalid password.";
                 header("Location: ../login.php");
                 die();
             }
         } else {
-            $_SESSION["error"] = "User not found.";
+            $_SESSION["loginerror"] = "User not found.";
             header("Location: ../login.php");
             die();
         }
 
         
     } else {
-        die("Invalid Login Request.");
+        $_SESSION["loginerror"] = "Invalid login request. Please try again.";
+        header("Location: ../login.php");
+        die();
     }
 
     header("Location: ../bookshelf.php")
