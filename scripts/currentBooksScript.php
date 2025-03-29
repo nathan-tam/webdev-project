@@ -1,19 +1,26 @@
 <?php
-    // Written by JL with a lot of AI assistance.
+    // Written by JL
 
+
+    // This script gets the books for the user's bookshelf and outputs the HTML for bookshelf.php
+    // It has to do multiple SQL calls:
+    //   What's the userID for the username?
+    //   What ISBNs are attached to the userID?
+    //   Get the book info for those ISBNs (this needs an SQL call for each book)
 
     include_once("connector.php");
 
     if (isset($_SESSION["username"])) {
         $username = $_SESSION["username"];
     } else {
+        //  Stop the script immediately if the user isn't logged in.
+        // This script is called from bookshelf.php which required you to be logged in
         die("User not logged in.");
     }
 
     $dbConnection = databaseConnection();
 
     // Get the userID associated with the username
-    // Username might need to be sanitize
     $query = "SELECT userID FROM users WHERE username = '$username';";
     $doQuery = executeQuery($query, $dbConnection);
 
@@ -41,7 +48,8 @@
     }
 
     // Check if the user has any books in the database
-    // If they don't, display a message and stop further processing
+    // This is a normal situation
+    // If there are no books, the bookshelf page will just have a simple message instead of the normal book container HTML
     if (empty($bookisbns)) {
         echo '<p id="nobooksinbookshelf">No books in your bookshelf yet!</p>';
         closeConnection($dbConnection);
@@ -49,6 +57,7 @@
     }
 
     // Get the book info for each ISBN
+    // This requires a lot of SQL calls
     foreach ($bookisbns as $isbn) {
         $query = "SELECT * FROM books WHERE ISBN = '$isbn';";
         $doQuery = executeQuery($query, $dbConnection);
@@ -65,10 +74,14 @@
     closeConnection($dbConnection);
 
     // Store the $books array in the session
-    $_SESSION["books"] = $books;
+    //   (Not in use at the moment)
+    //$_SESSION["books"] = $books;
 
 
-  // Iterate through $books and echo book items
+  // Iterate through $books and echo book
+  // This section makes the HTML for the bookshelf page
+  // Every book gets its own bookitem
+  //   Using htmlspecialchars to prevent html mischief
     foreach ($books as $book) {
         echo '<div class="bookItem">';
         echo '<img class="bookCover" src="' . htmlspecialchars($book["coverImage"]) . '" alt="Book cover">';
@@ -76,11 +89,11 @@
         echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
         echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
         echo '<p class="bookDescription">' . htmlspecialchars($book["description"]) . '</p>';
+        // Hidden form so that the Remove Book button can communicate which book it belongs to
+        echo '<form method="POST" action="scripts/removeBookScript.php">';
+        echo '<input type="hidden" name="isbntoremove" value="' . htmlspecialchars($book["ISBN"]) . '">';   
+        echo '<button type="submit">Remove book</button>';
+        echo '</form>';
         echo '</div>';
         echo '</div>';
     }
-
-
-
-    // Testing
-    //echo json_encode($books);
