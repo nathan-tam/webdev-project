@@ -6,10 +6,10 @@
         <title>Login</title>
     </head>
     <body>
-        <header class="pageHeader">
-            <a href="index.php"><button id="signOut">Go Back</button></a>
-            <h1 id="bookedLogo">booked</h1>
-        </header>
+
+        <!-- Header module on all pages (booked logo and rightside link) -->
+        <?php include('modules/mod-header.php'); ?>
+        
         <main>
             <div id="loginContainer">
                 <div id="loginBackground">
