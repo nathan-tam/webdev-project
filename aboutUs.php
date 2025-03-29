@@ -14,7 +14,6 @@
 			<meta name="email" content="latk0004@algonquincollege.com">
     </head>
 
-
     <body>
 
     <!-- Header module on all pages (booked logo and rightside link) -->
