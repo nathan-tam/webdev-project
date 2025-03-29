@@ -27,6 +27,8 @@
         $query = "SELECT passwordHash FROM users WHERE username = '$username';";
         $doQuery = executeQuery($query, $dbConnection);
 
+        closeConnection($dbConnection);
+
         $row = mysqli_fetch_assoc($doQuery);
 
         if ($row) {
@@ -34,13 +36,17 @@
             if (password_verify($password, $row["passwordHash"])) {
                 $_SESSION["username"] = $username;
             } else {
-                die("Invalid password.");
+                $_SESSION["error"] = "Invalid password.";
+                header("Location: ../login.php");
+                die();
             }
         } else {
-            die("User not found.");
+            $_SESSION["error"] = "User not found.";
+            header("Location: ../login.php");
+            die();
         }
 
-        closeConnection($dbConnection);
+        
     } else {
         die("Invalid Login Request.");
     }
