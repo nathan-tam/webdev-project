@@ -350,13 +350,13 @@ button {
 }
 
 .bookTitle {
-    font-size: 1.2em;
+    font-size: 19px;
     font-weight: bold;
     margin: 10px 0;
 }
 
 .bookDescription {
-    font-size: 0.9em;
+    font-size: 14px;
     color: #555;
 }
 
