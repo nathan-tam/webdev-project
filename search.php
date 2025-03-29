@@ -6,6 +6,7 @@
         exit();
     }
 
+
     // initialize the query variable, breaks otherwise
     $query = "";
 
@@ -67,10 +68,11 @@
                     <button id="searchButton" type="submit">Search &#x1F50D;</button>
                 </form>
             </div>
-            <?php if (!empty($query)): ?>
-                <h2>Search Results for "<?php echo htmlspecialchars($query); ?>"</h2>
-            <?php endif; ?>
+            
             <div class="bookContainer">
+                <?php if (!empty($query)): ?>
+                    <h2>Search Results for "<?php echo htmlspecialchars($query); ?>"</h2>
+                <?php endif; ?>
                 <?php if (!empty($searchResults)): ?>
                     <?php foreach ($searchResults as $book): ?>
                         <div class="bookItem">
