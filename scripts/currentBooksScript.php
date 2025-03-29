@@ -13,6 +13,7 @@
     $dbConnection = databaseConnection();
 
     // Get the userID associated with the username
+    // Username might need to be sanitize
     $query = "SELECT userID FROM users WHERE username = '$username';";
     $doQuery = executeQuery($query, $dbConnection);
 
