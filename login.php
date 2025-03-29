@@ -20,13 +20,14 @@
 
         <main>
             <div id="loginContainer">
-                <div id="loginBackground">
-
-                    <?php // If there was a login error, loginscript will have set the error session variable.
+                
+            <?php // If there was a login error, loginscript will have set the error session variable.
                     // Show the error for the user and then clear the variable
                      if (isset($_SESSION["loginerror"])) { ?>
                         <p class="error"><?php echo $_SESSION["loginerror"]; ?></p>
                         <?php unset($_SESSION["loginerror"]); } ?>
+
+                <div id="loginBackground">
 
                      <?php //You can use "test" as a username to bypass the database login. ?>
 
