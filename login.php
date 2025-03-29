@@ -1,5 +1,4 @@
 <?php session_start();?>
-
 <?php
     // If user is logged in, send them to their library automatically -JL
     if (isset($_SESSION['username']))
@@ -8,10 +7,7 @@
         exit();
     }
 ?>
-
-
 <!DOCTYPE html>
-
 <html id="background" lang="en">
     <head>
     <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
