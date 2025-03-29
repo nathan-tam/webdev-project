@@ -31,6 +31,7 @@
             </div>
 
             <div class="bookContainer">
+                <!-- Placeholder book-
                 <div class="bookItem">
                     <img class="bookCover" src="bookNoCover.png" alt="Purple book cover with dark purple lines to indicate a book with no cover">
                     <div class="bookContents">
@@ -38,8 +39,13 @@
                         <p class="bookDescription">Author</p>
                         <p class="bookDescription">Description</p>
                     </div>
-                </div>
+                </div> -->
+
+            
+                <?php include 'scripts/currentBooksScript.php' ?>
+
             </div>
+
         </main>
     </body>
 </html>

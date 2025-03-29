@@ -10,7 +10,7 @@
     {
         header("Location: bookshelf.php");
         exit();
-    } 
+    }
 ?>
 
 <!DOCTYPE html>

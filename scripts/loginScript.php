@@ -45,5 +45,5 @@
         die("Invalid Login Request.");
     }
 
-    header("Location: bookshelf.php")
+    header("Location: ../bookshelf.php")
 ?>
