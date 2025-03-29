@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 <?php
     // f there's no user set, kick the browser back to the index.php page
-    if (!isset($_SESSION["username"])) {
-        header("Location: index.php");
-        exit();
-    }
+    // if (!isset($_SESSION["username"])) {
+    //     header("Location: index.php");
+    //     exit();
+    // }
 
     $query = "";        // Initialize the query variable
 
@@ -66,10 +66,11 @@
                     <button id="searchButton" type="submit">Search &#x1F50D;</button>
                 </form>
             </div>
-            <?php if (!empty($query)): ?>
-                <h2>Search Results for "<?php echo htmlspecialchars($query); ?>"</h2>
-            <?php endif; ?>
+            
             <div class="bookContainer">
+                <?php if (!empty($query)): ?>
+                    <h2>Search Results for "<?php echo htmlspecialchars($query); ?>"</h2>
+                <?php endif; ?>
                 <?php if (!empty($searchResults)): ?>
                     <?php foreach ($searchResults as $book): ?>
                         <div class="bookItem">

@@ -254,8 +254,12 @@ button {
 .bookContainer {
     display: flex;
     flex-direction: column;
+    padding-bottom: 50px;
 
     margin-bottom: 10px;
+
+    justify-content: center;
+    align-items: center;
 }
 
 /*Holds the contents of one specific book including cover, author, title, etc.*/
@@ -265,6 +269,9 @@ button {
 
     background-color: #cfcfcf;
     padding: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+
     border-radius: 10px;
     box-sizing: border-box;
 
@@ -283,6 +290,7 @@ button {
     /*Top Right Bottom Left*/
     padding: 0px 10px 0px 10px;
     flex-grow: 2;
+    
 
     color: #000000;
 }
