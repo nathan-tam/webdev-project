@@ -1,0 +1,66 @@
+<?php session_start();?>
+
+<?php
+    // If user is logged in, send them to their library automatically -JL
+    if (isset($_SESSION['username']))
+    {
+        header("Location: bookshelf.php");
+        exit();
+    }
+?>
+
+
+<!DOCTYPE html>
+
+<html id="background" lang="en">
+    <head>
+    <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
+        <title>Login</title>
+    </head>
+    <body>
+
+        <!-- Header module on all pages (booked logo and rightside link) -->
+        <?php include('modules/mod-header.php'); ?>
+
+        <main>
+            <div id="loginContainer">
+                <div id="loginBackground">
+                    <?php //You can use "test" as a username to bypass the database login. ?>
+                    <form id="loginForm" method="POST" action="scripts/loginScript.php">
+                        <input class="loginElements" type="text" id="username" name="username" placeholder="Username">
+                        <span class="error" id="nameError"></span>
+                        <input class="loginElements" type="password" id="password" name="password" placeholder="Password">
+                        <span class="error" id="passwordError"></span>
+                        <button id="loginButton" type="submit" onclick="validateForm()">Login</button>
+                    </form>
+                    <p class="loginElements">Don't have an account? <a href="register.php"><u>Register Here</u></a></p>  
+                </div>
+            </div>
+        </main>
+        <script>
+            function validateForm() {
+                let username = document.getElementById("username").value;
+                let password = document.getElementById("password").value;
+
+                let valid = true;
+                
+                // checks if the username field is empty or invalid
+                const usernamePattern = /^[a-zA-Z0-9_]+$/;
+
+                if (username === "") {
+                    nameError.textContent = "Username is required.";
+                    valid = false;
+                } else if (!usernamePattern.test(username)) {
+                    nameError.textContent = "Invalid username.";
+                    valid = false;
+                }
+
+                // checks if the password field is empty
+                if (password === "") {
+                    passwordError.textContent = "Password is required.";
+                    valid = false;
+                }
+            }
+        </script>
+    </body>
+</html>

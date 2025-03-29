@@ -188,6 +188,7 @@ button {
     margin-top: 20px;
 }
 
+
 /*-------------------------------------------------------------------------------------*/
 /*                               CSS For Bookshelf Page                                */
 /*-------------------------------------------------------------------------------------*/
@@ -199,8 +200,8 @@ button {
     /*Center items on the page*/
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
-
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 #bookshelfButton {
@@ -213,13 +214,14 @@ button {
 /*-------------------------------------------------------------------------------------*/
 #searchBar {
     display: flex;
-    flex-direction: column;
+    /*Top Right Bottom Left*/
     padding: 10px;
 
     /*Center items on the page*/
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 #searchBarItem {
@@ -236,4 +238,138 @@ button {
     margin: 10px 20px 0px 20px;
     padding: 10px 32px;
     font-size: 22px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*                          CSS Shared Between Search and Login                        */
+/*-------------------------------------------------------------------------------------*/
+
+/*Holds all the books in the search result/library*/
+.bookContainer {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+}
+
+/*Holds the contents of one specific book including cover, author, title, etc.*/
+.bookItem {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #cfcfcf;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*Holds the title, author, discription of the book*/
+.bookContents {
+    display: flex;
+    flex-direction: column;
+    /*Top Right Bottom Left*/
+    padding: 0px 10px 0px 10px;
+    flex-grow: 2;
+
+    color: #000000;
+}
+
+.bookTitle {
+    font-size: 200%;
+    margin: 0px;
+}
+
+.bookDescription {
+    margin: 0px;
+    font-size: 100%;
+}
+
+/*Format book cover better*/
+.bookCover {
+    width: 7%;
+    height: 7%;
+}
+
+.AddBookContainer {
+    display: flex;
+    align-items: center;
+}
+
+#AddBookButton {
+    align-items: center;
+    padding: 10px 32px;
+    font-size: 18px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*                                    CSS For About Us                                 */
+/*-------------------------------------------------------------------------------------*/
+/*Holds all the books in the search result/library*/
+#aboutUsContainer {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*Holds the contents of one specific book including cover, author, title, etc.*/
+.aboutUsItem {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #cfcfcf;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.aboutUsImage {
+    height: 15%;
+    width: 15%;
+}
+
+
+/*-------------------------------------------------------------------------------------*/
+/*                                    CSS For Mobile Support                           */
+/*-------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 640px)  {
+
 }   
+/*
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.bookItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    background-color: #D4BEE4;
+    padding: 20px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bookItem img {
+    margin-right: 20px;
+    max-width: 120px;
+    box-shadow: 11px 10px 29px -15px rgba(0,0,0,0.75);
+    height: auto;
+}
+
+.bookItem h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.bookItem p {
+    font-size: 14px;
+    color: #333;
+}
+*/
