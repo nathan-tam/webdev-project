@@ -16,8 +16,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
-        <title>booked</title>
+    <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
+    <title>booked</title>
     </head>
     <body id="homepageBody">
         <main>

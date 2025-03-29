@@ -13,7 +13,7 @@
 
 <html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Login/Register</title>
     </head>
     <body>
@@ -23,7 +23,7 @@
 
         <main>
             <div id="registrationFormContainer">
-                <form id="registrationBackground" method="POST" action="registerScript.php">
+                <form id="registrationBackground" method="POST" action="scripts/registerScript.php">
                     <div class="registrationItem">
                         <label class="registerLabel" for="username">Username:</label>
                         <input class="registerInput" type="text" id="username" name="username" placeholder="Username">

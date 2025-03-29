@@ -7,7 +7,7 @@
 ?>
 
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>booked</title>
             <meta charset="UTF-8">
 			<meta name="author" content="Jonathan Latkowcer">

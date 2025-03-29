@@ -23,5 +23,5 @@
         die("Invalid request.");
     }
 
-    header("Location: ../login.php")
+    header("Location: login.php")
 ?>

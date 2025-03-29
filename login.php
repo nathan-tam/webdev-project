@@ -14,7 +14,7 @@
 
 <html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Login</title>
     </head>
     <body>
