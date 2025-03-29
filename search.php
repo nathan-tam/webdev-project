@@ -81,7 +81,7 @@
                                 <p class="bookDescription">ISBN: <?php echo htmlspecialchars($book['isbn']); ?></p>
                             </div>
                             <div class="AddBookContainer">
-                                <form action="addBook.php" method="POST">
+                                <form action="addBookScript.php" method="POST">
                                     <input type="hidden" name="title" value="<?php echo htmlspecialchars($book['title']); ?>">
                                     <input type="hidden" name="authors" value="<?php echo htmlspecialchars(implode(', ', $book['authors'])); ?>">
                                     <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
