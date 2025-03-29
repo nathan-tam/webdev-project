@@ -1,18 +1,29 @@
-<!DOCTYPE html>
 <?php session_start();?>
+
+<?php
+    // If user is logged in, send them to their library automatically -JL
+    if (isset($_SESSION['username']))
+    {
+        header("Location: bookshelf.php");
+        exit();
+    }
+?>
+
+<!DOCTYPE html>
+
 <html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Login/Register</title>
     </head>
     <body>
-        <header class="pageHeader">
-            <a href="index.php"><button id="signOut">Go Back</button></a>
-            <h1 id="bookedLogo">booked</h1>
-        </header>
+
+        <!-- Header module on all pages (booked logo and rightside link) -->
+        <?php include('modules/mod-header.php'); ?>
+
         <main>
             <div id="registrationFormContainer">
-                <form id="registrationBackground" method="POST" action="registerScript.php">
+                <form id="registrationBackground" method="POST" action="scripts/registerScript.php">
                     <div class="registrationItem">
                         <label class="registerLabel" for="username">Username:</label>
                         <input class="registerInput" type="text" id="username" name="username" placeholder="Username">

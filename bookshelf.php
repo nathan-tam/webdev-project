@@ -1,23 +1,27 @@
-<!DOCTYPE html>
-<?php
-    session_start();
+<?php session_start(); ?>
 
-    // check if a user is logged in
+<?php
+    // If there's no user set, kick the browser back to the index.php page -JL
     if (!isset($_SESSION["username"])) {
-        echo "Warning! Not Logged In.";
-        exit;
+        //echo "Warning! Not Logged In."; // For testing purposes only. Remove later.
+
+        header("Location: index.php");    // Production code for when testing is finished.
+        exit();
     }
 ?>
+
+<!DOCTYPE html>
+
 <html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Bookshelf</title>
     </head>
     <body>
-        <header class="pageHeader">
-            <a href="login.php"><button id="signOut">Sign Out</button></a>
-            <h1 id="bookedLogo">booked</h1>
-        </header>
+
+        <!-- Header module on all pages (booked logo and rightside link) -->
+         <?php include('modules/mod-header.php'); ?>
+
         <main>
             <div id="welcomeMessage">
                 <h2 id="welcomeText">Welcome, <?php echo $_SESSION["username"]; ?>!</h2>

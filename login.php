@@ -1,19 +1,28 @@
-<!DOCTYPE html>
 <?php session_start();?>
+<?php
+    // If user is logged in, send them to their library automatically -JL
+    if (isset($_SESSION['username']))
+    {
+        header("Location: bookshelf.php");
+        exit();
+    }
+?>
+<!DOCTYPE html>
 <html id="background" lang="en">
     <head>
-        <link rel="stylesheet" href="main-stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Login</title>
     </head>
     <body>
-        <header class="pageHeader">
-            <a href="index.php"><button id="signOut">Go Back</button></a>
-            <h1 id="bookedLogo">booked</h1>
-        </header>
+
+        <!-- Header module on all pages (booked logo and rightside link) -->
+        <?php include('modules/mod-header.php'); ?>
+
         <main>
             <div id="loginContainer">
                 <div id="loginBackground">
-                    <form id="loginForm" method="POST" action="loginScript.php">
+                    <?php //You can use "test" as a username to bypass the database login. ?>
+                    <form id="loginForm" method="POST" action="scripts/loginScript.php">
                         <input class="loginElements" type="text" id="username" name="username" placeholder="Username">
                         <span class="error" id="nameError"></span>
                         <input class="loginElements" type="password" id="password" name="password" placeholder="Password">
@@ -35,7 +44,7 @@
                 const usernamePattern = /^[a-zA-Z0-9_]+$/;
 
                 if (username === "") {
-                    nameError.textContent = "Name is required.";
+                    nameError.textContent = "Username is required.";
                     valid = false;
                 } else if (!usernamePattern.test(username)) {
                     nameError.textContent = "Invalid username.";
