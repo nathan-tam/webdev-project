@@ -16,7 +16,18 @@
     $query = "SELECT userID FROM users WHERE username = '$username';";
     $doQuery = executeQuery($query, $dbConnection);
 
+
+    // EDGE CASE CHECK: Check if the query failed or there are no rows returned at all
+    // This occurs if a user is logged in, but there's no userID in the database for them
+    // This should never happen...
+    if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
+        echo '<p id="nobooksinbookshelf">No bookshelf registered for your account! Please contact technical support.</p>';
+        closeConnection($dbConnection);
+        exit; // Stop further processing
+    }
+    
     $userID = mysqli_fetch_assoc($doQuery)["userID"];
+
 
     // Get the ISBNs of the books associated with the userID
     $query = "SELECT * FROM usersbooks WHERE userID = '$userID';";
