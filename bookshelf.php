@@ -57,7 +57,7 @@
             <div class="modalContent">
                 <p>Are you sure you want to remove this book from your bookshelf?</p>
                 <form id="removeBookForm" action="scripts/removeBookScript.php" method="POST">
-                    <input type="hidden" name="isbn" id="modalISBN">
+                    <input type="hidden" name="isbntoremove" id="modalISBN">
                     <button type="submit" class="confirmButton">Yes, Remove</button>
                     <button type="button" class="cancelButton" onclick="closeModal()">Cancel</button>
                 </form>
