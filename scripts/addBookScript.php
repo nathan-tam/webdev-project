@@ -39,7 +39,7 @@
 
     // check if the book already exists in the 'books' table
     $dbConnection = databaseConnection();
-    $query = "SELECT * FROM books WHERE isbn = $isbn";
+    $query = "SELECT * FROM books WHERE isbn = '$isbn'";
     $doQuery = executeQuery($query, $dbConnection);
     $row = mysqli_fetch_assoc($doQuery);
     

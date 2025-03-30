@@ -2,9 +2,6 @@
 
 <?php
 
-    // Use the variable below for testing.
-    //$_SESSION['username'] = 'jonathan'; 
-
     // If user is logged in, send them to their library automatically
     if (isset($_SESSION['username']))
     {
@@ -28,8 +25,9 @@
                 <a href="aboutUs.php"><button class="welcomeButton">About Us</button></a>
             </div>
             <div>
+            <!-- Displays an error if the database can't connect  -->
                 <?php if (isset($_SESSION["dberror"])){
-                 echo('<p>'. $_SESSION["dberror"] .'</p>');
+                 echo('<div id=\'dberrormessage\'><p>'. $_SESSION["dberror"] .'</p>');
                  unset($_SESSION["dberror"]); } ?>
             </div>
         </main>

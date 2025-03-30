@@ -441,7 +441,24 @@ button {
 
 }
 
-/* Modal container for bookshelf page (removing) - JL */
+
+
+
+
+/* Formatting for DB error message on index.php page -JL
+  Likely should be changed */
+#dberrormessage{
+    background-color: #441752;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#ca637d;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    padding: 6px 6px;
+    margin: 10px;
+}
+
+/* Modal container for bookshelf page (removing a book warning) - JL */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;

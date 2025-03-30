@@ -30,7 +30,7 @@
                     <div class="aboutUsContents">
                         <p class="aboutUsTitle">Jonathan Latkowcer</p>
                         <p class="aboutUsDescription">Team Leader</p><br>
-                        <p class="aboutUsDescription">Those who do can, build.<br><br>Those who can't, lead.</p>
+                        <p class="aboutUsDescription">Those who can, build.<br><br>Those who can't, lead.</p>
                     </div>
                 </div>
                 <div class="aboutUsItem">
