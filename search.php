@@ -6,7 +6,6 @@
         exit();
     }
 
-
     // initialize the query variable, breaks otherwise
     $query = "";
 
