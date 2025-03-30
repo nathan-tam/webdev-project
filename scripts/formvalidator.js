@@ -45,7 +45,7 @@ function validateForm() {
     const usernamePattern = /^[a-zA-Z0-9_]+$/;
 
     if (name === "") {
-        nameError.textContent = "Name is required.";
+        nameError.textContent = "Username is required.";
         valid = false;
     } else if (!usernamePattern.test(name)) {
         nameError.textContent = "Invalid username.";

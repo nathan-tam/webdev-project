@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+
      // TEST CODE FOR NON-DB USER: -JL
     if ($_POST['username'] == "test"){
         $_SESSION["username"] = "test";
@@ -26,29 +27,33 @@
         $query = "SELECT passwordHash FROM users WHERE username = '$username';";
         $doQuery = executeQuery($query, $dbConnection);
 
+        closeConnection($dbConnection);
+
         $row = mysqli_fetch_assoc($doQuery);
 
+
+        // Added some extra error handling -- sets a SESSION variable that shows on login page -JL
+        // Also kicks the user back to the login page
         if ($row) {
             // verify the password
             if (password_verify($password, $row["passwordHash"])) {
                 $_SESSION["username"] = $username;
-
-                // set the session variable for the user ID
-                $query = "SELECT userID FROM users WHERE username = '$username';";
-                $doQuery = executeQuery($query, $dbConnection);
-                $row = mysqli_fetch_assoc($doQuery);
-                // Grabbing userID to make things easier later -NT
-                $_SESSION["userID"] = $row["userID"];
             } else {
-                die("Invalid password.");
+                $_SESSION["loginerror"] = "Invalid password.";
+                header("Location: ../login.php");
+                die();
             }
         } else {
-            die("User not found.");
+            $_SESSION["loginerror"] = "User not found.";
+            header("Location: ../login.php");
+            die();
         }
 
-        closeConnection($dbConnection);
+        
     } else {
-        die("Invalid Login Request.");
+        $_SESSION["loginerror"] = "Invalid login request. Please try again.";
+        header("Location: ../login.php");
+        die();
     }
 
     header("Location: ../bookshelf.php")
