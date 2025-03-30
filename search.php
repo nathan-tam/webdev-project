@@ -28,6 +28,8 @@
                 $thumbnail = $item['volumeInfo']['imageLinks']['thumbnail'] ?? 'bookNoCover.png';
                 $isbn = 'No ISBN';
                 $description = $item['volumeInfo']['description'] ?? '';
+                $publishDate = $item['volumeInfo']['publishedDate'] ?? "unknown";
+                $publisher = $item['volumeInfo']['publisher'] ?? 'unknown publisher';
 
 
                 // Extract ISBN
@@ -48,7 +50,9 @@
                     "authors" => $authors,
                     "thumbnail" => $thumbnail,
                     "isbn" => $isbn,
-                    "description" => $description
+                    "description" => $description,
+                    "publishDate" => $publishDate,
+                    "publisher" => $publisher
                 ];
             }
         }
@@ -93,6 +97,7 @@
                                     <p class="bookTitle"><?php echo htmlspecialchars($book['title']); ?></p>
                                     <p class="bookInfo">Author(s): <?php echo htmlspecialchars(implode(', ', $book['authors'])); ?></p>
                                     <p class="bookInfo">ISBN: <?php echo htmlspecialchars($book['isbn']); ?></p>
+                                    <p class="bookInfo">Published by: <?php echo htmlspecialchars($book['publisher']); ?> on <?php echo htmlspecialchars($book['publishDate']); ?> </p>
                                 </div>
                                 <div class="AddBookContainer">
                                     <form action="scripts/addBookScript.php" method="POST">
