@@ -81,7 +81,6 @@ button {
     color: #441752;
 
     margin-top: 20%;
-    justify-content: center;    /* this centers the text horizontally */
     align-items: center;        /* this centers the text vertically */
     flex-direction: column;     /* this stacks the button and text on top of each other */
 }
@@ -89,6 +88,7 @@ button {
 /*Fix spacing between welcome banner and buttons*/
 #welcomeBanner {
     margin: 0px;
+    text-align: center;         /* this centers the text vertically */
 }
 
 /*Places two buttons side by side under the welcome banner*/
@@ -99,10 +99,28 @@ button {
     align-items: center;        /* this centers the text vertically */
 }
 
+
+@media (max-width: 800px) {
+    #buttonContainer {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .welcomeButton {
+        width: 90% !important;
+        min-width: unset;
+        margin: 10px 0;
+    }
+}
+
 /*Fix spacing between buttons*/
 .welcomeButton {
     /*Top Right Bottom Left*/
     margin: 10px 20px 0px 20px;
+    min-width: 200px;
+    width: 25%;
+    justify-content: center;
 }
 /*-------------------------------------------------------------------------------------*/
 /*                            CSS for Registration Page                                */
@@ -380,6 +398,10 @@ button {
 
 @media (max-width: 1000px) {
     .aboutUsItem {
+        min-width: 100%;
+        max-width: none;
+    }
+    .bookItem {
         min-width: 100%;
         max-width: none;
     }
