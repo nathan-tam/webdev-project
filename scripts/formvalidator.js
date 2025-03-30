@@ -21,17 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function register(){
-
-}
-
-function login(){
-
-}
-
-
-
-
 function validateForm() {
     let name = document.getElementById("username").value;
     let password = document.getElementById("password").value;    
