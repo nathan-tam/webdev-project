@@ -24,9 +24,13 @@
                 
             <?php // If there was a login error, loginscript will have set the error session variable.
                     // Show the error for the user and then clear the variable
-                     if (isset($_SESSION["loginerror"])) { ?>
-                        <p class="error"><?php echo $_SESSION["loginerror"]; ?></p>
-                        <?php unset($_SESSION["loginerror"]); } ?>
+                    if (isset($_SESSION["loginerror"])) { ?>
+                        <div id="LoginError">
+                            <p class="error"><?php echo $_SESSION["loginerror"]; ?></p>
+                        </div>
+                        <?php unset($_SESSION["loginerror"]); 
+                    } ?>
+                
 
                 <div id="loginBackground">
 
