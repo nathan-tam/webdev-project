@@ -13,9 +13,26 @@
             die();
         }
 
+        // Check if the username is already taken -JL
+        $dbConnection = databaseConnection();
+        $query = "SELECT * FROM users WHERE username = '$username'";
+        $doQuery = executeQuery($query, $dbConnection);
+
+         // Username is taken, so send the user back to the registration with an error -JL
+         // SESSION variable used to show the error on the reg page
+         // If any rows are returned, that username already exists
+        if (mysqli_num_rows($doQuery) > 0) {
+            closeConnection($dbConnection);
+            $_SESSION["registererror"] = "Username is already taken. Please choose a different one.";
+            header("Location: ../register.php");
+            die();
+        }
+
+
+
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $dbConnection = databaseConnection();
+
         $query = "INSERT INTO users(username, passwordHash) VALUES ('$username', '$password');";
         $doQuery = executeQuery($query, $dbConnection);
 
