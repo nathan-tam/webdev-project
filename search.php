@@ -27,6 +27,8 @@
                 $authors = $item['volumeInfo']['authors'] ?? ['Unknown Author'];
                 $thumbnail = $item['volumeInfo']['imageLinks']['thumbnail'] ?? 'bookNoCover.png';
                 $isbn = 'No ISBN';
+                $description = $item['volumeInfo']['description'] ?? '';
+
 
                 // Extract ISBN
                 if (isset($item['volumeInfo']['industryIdentifiers'])) {
@@ -45,7 +47,8 @@
                     "title" => $title,
                     "authors" => $authors,
                     "thumbnail" => $thumbnail,
-                    "isbn" => $isbn
+                    "isbn" => $isbn,
+                    "description" => $description
                 ];
             }
         }
@@ -61,6 +64,15 @@
         <!-- Header module on all pages (booked logo and rightside link) -->
         <?php include('modules/mod-header.php'); ?>
         <main>
+            <div>
+                <?php // If a book was added, then show a message: -JL
+                    if (isset($_SESSION["bookadded"])) { ?>
+                        <div id="bookAddedDiv">
+                            <p class="error"><?php echo $_SESSION["bookadded"]; ?></p>
+                        </div>
+                        <?php unset($_SESSION["bookadded"]); 
+                    } ?>
+            </div>
             <div id="searchBar">
                 <form id="searchform" action="search.php" method="POST">
                     <input id="searchBarItem" type="text" name="query" placeholder="Enter book title..." value="<?php echo htmlspecialchars($query); ?>">
@@ -75,23 +87,32 @@
                 <?php if (!empty($searchResults)): ?>
                     <?php foreach ($searchResults as $book): ?>
                         <div class="bookItem">
-                            <img class="bookCover" src="<?php echo htmlspecialchars($book['thumbnail']); ?>" alt="Book Thumbnail">
-                            <div class="bookContents">
-                                <p class="bookTitle"><?php echo htmlspecialchars($book['title']); ?></p>
-                                <p class="bookDescription">Author(s): <?php echo htmlspecialchars(implode(', ', $book['authors'])); ?></p>
-                                <p class="bookDescription">ISBN: <?php echo htmlspecialchars($book['isbn']); ?></p>
+                            <div class="bookOverview">
+                                <img class="bookCover" src="<?php echo htmlspecialchars($book['thumbnail']); ?>" alt="Book Thumbnail">
+                                <div class="bookContents">
+                                    <p class="bookTitle"><?php echo htmlspecialchars($book['title']); ?></p>
+                                    <p class="bookInfo">Author(s): <?php echo htmlspecialchars(implode(', ', $book['authors'])); ?></p>
+                                    <p class="bookInfo">ISBN: <?php echo htmlspecialchars($book['isbn']); ?></p>
+                                </div>
+                                <div class="AddBookContainer">
+                                    <form action="scripts/addBookScript.php" method="POST">
+                                        <input type="hidden" name="title" value="<?php echo htmlspecialchars($book['title']); ?>">
+                                        <input type="hidden" name="authors" value="<?php echo htmlspecialchars(implode(', ', $book['authors'])); ?>">
+                                        <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
+                                        <input type="hidden" name="thumbnail" value="<?php echo htmlspecialchars($book['thumbnail']); ?>">
+                                        <button id="AddBookButton" type="submit">+ Add Book</button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="AddBookContainer">
-                                <form action="scripts/addBookScript.php" method="POST">
-                                    <input type="hidden" name="title" value="<?php echo htmlspecialchars($book['title']); ?>">
-                                    <input type="hidden" name="authors" value="<?php echo htmlspecialchars(implode(', ', $book['authors'])); ?>">
-                                    <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
-                                    <input type="hidden" name="thumbnail" value="<?php echo htmlspecialchars($book['thumbnail']); ?>">
-                                    <button id="AddBookButton" type="submit">+ Add Book</button>
-                                </form>
+
+                            <div class="bookDescription">
+                                <p>
+                                    <?php echo htmlspecialchars($book['description']); ?>
+                                </p>
                             </div>
-                        </div>
                         <br>
+                        </div>
+                        
                     <?php endforeach; ?>
                 <?php else: ?>
                     <?php if ($_SERVER["REQUEST_METHOD"] === "POST"): ?>
