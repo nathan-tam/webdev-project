@@ -28,20 +28,18 @@
             <div id="addBook">
                 <a href="search.php"><button id="bookshelfButton">Add Book +</button></a>
             </div>
+            
+            <?php // If a book was added, then show a message: -JL
+                    if (isset($_SESSION["bookremoved"])) { ?>
+                        <div id="messageDiv">
+                            <p class="error"><?php echo $_SESSION["bookremoved"]; ?></p>
+                        </div>
+                        <?php unset($_SESSION["bookremoved"]); 
+                    } ?>
+            </div>
 
             <div class="bookContainer">
                 
-                <!-- Placeholder book HTML 
-
-                 <div class="bookItem">
-                     <img class="bookCover" src="bookNoCover.png" alt="Purple book cover with dark purple lines to indicate a book with no cover">
-                     <div class="bookContents">
-                         <p class="bookTitle">Title</p>
-                         <p class="bookDescription">Author</p>
-                         <p class="bookDescription">Year</p>
-                     </div>
-                 </div>
-                 </div> -->
  
                 <!-- Gets books from database and creates the HTML containers-->
                  <?php include 'scripts/currentBooksScript.php' ?>

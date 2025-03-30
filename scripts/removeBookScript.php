@@ -55,7 +55,7 @@
     $query = "DELETE FROM usersbooks WHERE userID = '$userID' AND ISBN = '$isbntoremove';";
     $doQuery = executeQuery($query, $dbConnection);
 
-
+    $SESSION_["bookremoved"] = "Book removed from your collection!";
 
     closeConnection($dbConnection);
 
