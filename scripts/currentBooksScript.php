@@ -66,6 +66,7 @@
             "ISBN" => $bookInfo["ISBN"],
             "title" => $bookInfo["title"],
             "author" => $bookInfo["author"],
+            "year" => $bookInfo["year"],
             "coverImage" => $bookInfo["coverImage"]
         );
     } 
@@ -83,10 +84,12 @@
   //   Using htmlspecialchars to prevent html mischief
     foreach ($books as $book) {
         echo '<div class="bookItem">';
+        echo '<div class="bookOverview"';
         echo '<img class="bookCover" src="' . htmlspecialchars($book["coverImage"]) . '" alt="Book cover">';
         echo '<div class="bookContents">';
         echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
         echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
+        echo '<p class="bookYear">' . htmlspecialchars($book["year"]) . '</p>';
         // Hidden form so that the Remove Book button can communicate which book it belongs to
      //   echo '<form method="POST" action="scripts/removeBookScript.php">';
      //   echo '<input type="hidden" name="isbntoremove" value="' . htmlspecialchars($book["ISBN"]) . '">';   
@@ -94,6 +97,7 @@
          echo '<button type="button" class="removeButton" onclick="showModal(\'' . htmlspecialchars($book["ISBN"]) . '\')">Remove Book</button>';
 
         echo '</form>';
+        echo '</div>';
         echo '</div>';
         echo '</div>';
     }
