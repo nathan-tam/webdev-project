@@ -63,7 +63,7 @@
         <?php include('modules/mod-header.php'); ?>
         <main>
             <div id="searchBar">
-                <form action="search.php" method="POST">
+                <form id="searchform" action="search.php" method="POST">
                     <input id="searchBarItem" type="text" name="query" placeholder="Enter book title..." value="<?php echo htmlspecialchars($query); ?>">
                     <button id="searchButton" type="submit">Search &#x1F50D;</button>
                 </form>
@@ -101,5 +101,31 @@
                 <?php endif; ?>
             </div>
         </main>
+        <script>
+
+
+            // The scripting validates input for the search bar.
+            document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('searchform');
+            form.addEventListener('submit', validateSearch);    
+            });
+
+            function validateSearch(event) {
+                var searchInput = document.getElementById('searchBarItem').value;
+
+                // Regex to check if the input is empty or only spaces -JL
+                // API gets angry if it's blank
+                var emptyOrSpaces = /^\s*$/;
+
+                if (searchInput === "") {
+                    event.preventDefault();
+                }
+                else if (emptyOrSpaces.test(searchInput))
+                {
+                    event.preventDefault();
+                }
+
+            }
+        </script>
     </body>
 </html>
