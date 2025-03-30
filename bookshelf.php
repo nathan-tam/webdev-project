@@ -49,5 +49,42 @@
  
             </div>
         </main>
+
+        <div id="confirmationModal" class="modal">
+            <div class="modalContent">
+                <p>Are you sure you want to remove this book from your bookshelf?</p>
+                <form id="removeBookForm" action="scripts/removeBookScript.php" method="POST">
+                    <input type="hidden" name="isbn" id="modalISBN">
+                    <button type="submit" class="confirmButton">Yes, Remove</button>
+                    <button type="button" class="cancelButton" onclick="closeModal()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function showModal(isbn) {
+                // Show the modal
+                var modal = document.getElementById('confirmationModal');
+                modal.style.display = 'flex';
+
+                // Set the ISBN in the hidden input field
+                document.getElementById('modalISBN').value = isbn;
+            }
+
+            function closeModal() {
+                // Hide the modal
+                var modal = document.getElementById('confirmationModal');
+                modal.style.display = 'none';
+            }
+
+            // Close the modal if the user clicks outside of it
+            window.onclick = function(event) {
+                var modal = document.getElementById('confirmationModal');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            };
+        </script>
+
     </body>
 </html>
