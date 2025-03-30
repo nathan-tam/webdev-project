@@ -3,9 +3,8 @@
 <?php
     // If there's no user set, kick the browser back to the index.php page -JL
     if (!isset($_SESSION["username"])) {
-        //echo "Warning! Not Logged In."; // For testing purposes only. Remove later.
 
-        header("Location: index.php");    // Production code for when testing is finished.
+        header("Location: index.php");   
         exit();
     }
 ?>
@@ -31,7 +30,9 @@
             </div>
 
             <div class="bookContainer">
-                <!-- Placeholder book-
+                
+                <!-- Placeholder book HTML 
+
                  <div class="bookItem">
                      <img class="bookCover" src="bookNoCover.png" alt="Purple book cover with dark purple lines to indicate a book with no cover">
                      <div class="bookContents">
@@ -42,14 +43,16 @@
                  </div>
                  </div> -->
  
-             
+                <!-- Gets books from database and creates the HTML containers-->
                  <?php include 'scripts/currentBooksScript.php' ?>
  
-             
+
  
             </div>
         </main>
 
+        <!-- Hidden modal that pops up when the user removes a book
+         Controlled by showModal() and the buttons created in the currentBooksScript -->
         <div id="confirmationModal" class="modal">
             <div class="modalContent">
                 <p>Are you sure you want to remove this book from your bookshelf?</p>
