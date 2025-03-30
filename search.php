@@ -105,6 +105,7 @@
                                         <input type="hidden" name="authors" value="<?php echo htmlspecialchars(implode(', ', $book['authors'])); ?>">
                                         <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
                                         <input type="hidden" name="thumbnail" value="<?php echo htmlspecialchars($book['thumbnail']); ?>">
+                                        <input type="hidden" name="year" value="<?php echo htmlspecialchars($book['publishDate']); ?>">
                                         <button id="AddBookButton" type="submit">+ Add Book</button>
                                     </form>
                                 </div>
