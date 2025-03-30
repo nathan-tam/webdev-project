@@ -336,8 +336,7 @@ button {
 /*Holds all the books in the search result/library*/
 #aboutUsContainer {
     display: flex;
-
-    justify-content: space-between;
+    flex-wrap: wrap;
 
     justify-content: center;    /*Center items on the page*/
     align-items: center;
@@ -351,13 +350,12 @@ button {
     background-color: #cfcfcf;
     border-radius: 10px;
     text-align: center;
-    width: 250px;
+    max-width: 250px;
     min-height: 300px;  /* height is determined by text content otherwise */
     padding: 20px;
 }
 
 .aboutUsImage {
-    justify-content: center;
     width: auto;
     max-width: 150px;
     height: 200px;
@@ -365,13 +363,11 @@ button {
 
 /* Style the text inside the cards */
 .aboutUsContents {
-    justify-content: center;
     padding: 10px;
 }
 
 .aboutUsTitle {
     color:#000000;
-    justify-content: center;
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
@@ -384,11 +380,6 @@ button {
 
 @media (max-width: 1000px) {
     .aboutUsItem {
-        min-width: 100%;
-        max-width: none;
-    }
-
-    .bookItem {
         min-width: 100%;
         max-width: none;
     }
