@@ -24,21 +24,29 @@
 
     $dbConnection = databaseConnection();
 
-    // Get the userID associated with the username
     $username = $_SESSION["username"];
-    $query = "SELECT userID FROM users WHERE username = '$username';";
-    $doQuery = executeQuery($query, $dbConnection);
 
-    // EDGE CASE CHECK: Check if the query failed or there are no rows returned at all
-    // (This occurs if a user is logged in, but there's no userID in the database for them)
-    // This should never happen...
-    if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
-        header("Location: ../index.php");
-        closeConnection($dbConnection);
-        exit;
-    }
+    // EDGE CASE in case no userID set
+        // Get the userID associated with the username
+
+    if (!isset($_SESSION["userID"])) {
     
-    $userID = mysqli_fetch_assoc($doQuery)["userID"];
+        $query = "SELECT userID FROM users WHERE username = '$username';";
+        $doQuery = executeQuery($query, $dbConnection);
+
+        // EDGE CASE CHECK: Check if the query failed or there are no rows returned at all
+        // (This occurs if a user is logged in, but there's no userID in the database for them)
+        // This should never happen...
+        if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
+            header("Location: ../index.php");
+            closeConnection($dbConnection);
+            exit;
+        }
+        
+
+        $userID = mysqli_fetch_assoc($doQuery)["userID"];
+        $_SESSION["userID"] = $userID; // Set the userID in the session for future use
+    }
 
     // Send a scary SQL request to the database...
     // Remove the userid-isbn entry from the userbooks table
