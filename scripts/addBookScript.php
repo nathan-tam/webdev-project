@@ -19,6 +19,7 @@
     $isbn = $_POST["isbn"];
     $title = $_POST["title"];
     $authors = $_POST["authors"];
+    $year = $_POST["year"];
     $thumbnail = $_POST["thumbnail"];
     
     // check if the book already exists in the 'books' table
@@ -29,7 +30,7 @@
     
     // if the book does not exist, insert it into the 'books' table
     if (!$row) {
-        $query = "INSERT INTO books(ISBN, title, author, coverImage) VALUES ('$isbn', '$title', '$authors', '$thumbnail');";
+        $query = "INSERT INTO books(ISBN, title, author, year, coverImage) VALUES ('$isbn', '$title', '$authors', '$year', '$thumbnail');";
         $doQuery= executeQuery($query, $dbConnection);
     }
 
