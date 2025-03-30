@@ -84,19 +84,17 @@
   //   Using htmlspecialchars to prevent html mischief
     foreach ($books as $book) {
         echo '<div class="bookItem">';
-        echo '<div class="bookOverview">';
-        echo '<img class="bookCover" src="' . htmlspecialchars($book["coverImage"]) . '" alt="Book cover">';
-        echo '<div class="bookContents">';
-        echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
-        echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
-        echo '<p class="bookYear">' . htmlspecialchars($book["year"]) . '</p>';
-        echo '</div>';
-        echo '<div class="bookContents">';
-        echo '<form>';
-        echo '<button type="button" class="removeButton" onclick="showModal(\'' . htmlspecialchars($book["ISBN"]) . '\')">Remove Book</button>';
-        echo '</form>';
-        echo '</div>';
-        
-        echo '</div>';
+            echo '<div class="bookOverview">';
+            echo '<img class="bookCover" src="' . htmlspecialchars($book["coverImage"]) . '" alt="Book cover">';
+            echo '<div class="bookContents">';
+                echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
+                echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
+                echo '<p class="bookYear">' . htmlspecialchars($book["year"]) . '</p>';
+            echo '</div>';
+            echo '<div class="AddBookContainer">';
+                echo '<form>';
+                echo '<button type="button" class="removeButton" onclick="showModal(\'' . htmlspecialchars($book["ISBN"]) . '\')">Remove Book</button>';
+                echo '</form>';
+            echo '</div>';
         echo '</div>';
     }
