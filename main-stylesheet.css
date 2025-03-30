@@ -321,7 +321,11 @@ button {
     max-height: 500px;
 }
 
-
+.bookYear {
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 /*Holds the title, author, discription of the book*/
 .bookContents {
