@@ -10,7 +10,7 @@
 
     // We should never end up here without a POST request, but just in case...
     if (!isset($_POST["isbntoremove"])) {
-        header("Location: ../index.php");
+        header("Location: ../aboutUs.php");  //TESTING
         exit();
     }
 
@@ -22,44 +22,43 @@
         exit();
     }
 
-    $dbConnection = databaseConnection();
-
+    // EDGE CASE in case no userID set
     // Get the userID associated with the username
-    $username = $_SESSION["username"];
-    $query = "SELECT userID FROM users WHERE username = '$username';";
-    $doQuery = executeQuery($query, $dbConnection);
 
-    // EDGE CASE CHECK: Check if the query failed or there are no rows returned at all
-    // (This occurs if a user is logged in, but there's no userID in the database for them)
-    // This should never happen...
-    if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
-        header("Location: ../index.php");
-        closeConnection($dbConnection);
-        exit;
+    if (!isset($_SESSION["userID"])) {
+
+        $query = "SELECT userID FROM users WHERE username = '$username';";
+        $doQuery = executeQuery($query, $dbConnection);
+
+        // EDGE CASE CHECK: Check if the query failed or there are no rows returned at all
+        // (This occurs if a user is logged in, but there's no userID in the database for them)
+        // This should never happen...
+        if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
+            closeConnection($dbConnection);
+            header("Location: ../index.php");
+            exit;
+        }
+        
+        $_SESSION["userID"] = mysqli_fetch_assoc($doQuery)["userID"];
+
     }
     
-    $userID = mysqli_fetch_assoc($doQuery)["userID"];
+
+    $username = $_SESSION["username"];
+    $userID = $_SESSION["userID"];
+    $dbConnection = databaseConnection();
+
+
 
     // Send a scary SQL request to the database...
     // Remove the userid-isbn entry from the userbooks table
     $query = "DELETE FROM usersbooks WHERE userID = '$userID' AND ISBN = '$isbntoremove';";
     $doQuery = executeQuery($query, $dbConnection);
 
+
+
     closeConnection($dbConnection);
 
-    /*
-    // Possible error handling that could be implemented:
-    if ($doQuery) {
-        // Successfully removed the book from the user's bookshelf
-        // Redirect to the bookshelf page to reload it
-        header("Location: ../bookshelf.php");
-        exit();
-    } else {
-        // Failed to remove the book from the user's bookshelf
-        header("Location: ../error.php?error=removeBookFailed");
-        exit();
-    }
-    */
 
     header("Location: ../bookshelf.php");
     exit();
