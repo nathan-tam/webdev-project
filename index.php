@@ -28,6 +28,11 @@
 
                 <a href="aboutUs.php"><button class="welcomeButton">About Us</button></a>
             </div>
+            <div>
+                <?php if (isset($_SESSION["dberror"])){
+                 echo('<p>'. $_SESSION["dberror"] .'</p>');
+                 unset($_SESSION["dberror"]); } ?>
+            </div>
         </main>
     </body>
 </html>

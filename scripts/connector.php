@@ -5,10 +5,19 @@ function databaseConnection() {
     $dbPassword = "";
     $dbName = "bookedbased";
 
-    $connection = mysqli_connect($server, $dbUser, $dbPassword, $dbName);
+    // Experimental code to handle the database being down
+    // Enable exceptions for mysqli errors
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-    if (!$connection) {
-        exit("Connection failed: " . mysqli_connect_error());
+    try {
+        $connection = mysqli_connect($server, $dbUser, $dbPassword, $dbName);
+    } catch (mysqli_sql_exception $e) {
+       
+        // Database is down!
+        // Send the user back to the main page with an error
+        header("Location: ../index.php");
+        $_SESSION["dberror"] = "Database connection failed. Please try again later.";
+        exit();
     }
 
     return $connection;
