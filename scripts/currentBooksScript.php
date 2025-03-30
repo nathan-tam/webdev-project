@@ -89,7 +89,7 @@
                 echo '<div class="bookContents">';
                     echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
                     echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
-                    echo '<p class="bookYear">' . htmlspecialchars($book["year"]) . '</p>';
+                    echo '<p class="bookYear"> Date of publishing: ' . htmlspecialchars($book["year"]) . '</p>';
                 echo '</div>';
                 echo '<div class="AddBookContainer">';
                     echo '<form>';
