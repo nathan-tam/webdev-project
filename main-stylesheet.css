@@ -219,32 +219,23 @@ button {
 /*-------------------------------------------------------------------------------------*/
 /*                                CSS For Search Page                                  */
 /*-------------------------------------------------------------------------------------*/
-#searchBar {
+#searchform {
     display: flex;
-    /*Top Right Bottom Left*/
-    padding: 10px;
-
-    /*Center items on the page*/
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+
     margin-top: 4%;
-    margin-bottom: 4%;
+    margin-bottom: 4%
 }
 
 #searchBarItem {
-    /*Top Right Bottom Left*/
-    margin: 10px 20px 0px 20px;
-    padding: 10px 32px;
-    font-size: 22px;
-    background-color: #cfcfcf;
+    margin-right: 10px;
     width: 50%;
+    background-color: #cfcfcf;
 }
 
 #searchButton {
-    /*Top Right Bottom Left*/
-    margin: 10px 20px 0px 20px;
-    padding: 10px 32px;
-    font-size: 22px;
+    margin-left: 10px;
 }
 
 #results {
