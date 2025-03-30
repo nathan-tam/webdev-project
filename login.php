@@ -10,8 +10,9 @@
 <!DOCTYPE html>
 <html id="background" lang="en">
     <head>
-    <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Login</title>
+        <script src="scripts/formvalidator.js"></script>
     </head>
     <body>
 
@@ -42,77 +43,5 @@
                 </div>
             </div>
         </main>
-        
-        <script>
-
-            // The scripting validates input for the username and password fields.
-            // The user sees warnings if forbidden characters are added
-            // Simple REGEX checks for username and password
-            function validateUsername(event) {
-                var username = document.getElementById('username').value;
-
-                var usernamePattern = /^[a-zA-Z0-9]+$/;
-                if (!usernamePattern.test(username)) {
-                    nameError.textContent = "Invalid username.";
-                    event.preventDefault();
-                }
-                else {
-                    nameError.textContent = "";
-                }
-            }
-
-            function validatePassword(event) {
-                var pass = document.getElementById('password').value;
-
-                // checks if the password field is empty
-                if (pass === "") {
-                    passwordError.textContent = "Password is required.";
-                    event.preventDefault();
-                }
-                else{
-                    passwordError.textContent = "";
-                }
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-
-            var usernamefield = document.getElementById('username');
-            usernamefield.addEventListener('input', validateUsername);
-
-            var passwordfield = document.getElementById('password');
-            passwordfield.addEventListener('input', validatePassword);
-
-            
-            var form = document.getElementById('loginForm');
-            form.addEventListener('submit', validateUsername);
-            form.addEventListener('submit', validatePassword);
-
-            });
-
-
-           /* function validateForm() {
-                let username = document.getElementById("username").value;
-                let password = document.getElementById("password").value;
-
-                let valid = true;
-                
-                // checks if the username field is empty or invalid
-                const usernamePattern = /^[a-zA-Z0-9_]+$/;
-
-                if (username === "") {
-                    nameError.textContent = "Username is required.";
-                    valid = false;
-                } else if (!usernamePattern.test(username)) {
-                    nameError.textContent = "Invalid username.";
-                    valid = false;
-                }
-
-                // checks if the password field is empty
-                if (password === "") {
-                    passwordError.textContent = "Password is required.";
-                    valid = false;
-                }
-            }*/
-        </script>
     </body>
 </html>
