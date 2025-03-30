@@ -1,6 +1,6 @@
 <?php session_start();?>
 
-<a?php
+<?php
 
     // Use the variable below for testing.
     //$_SESSION['username'] = 'jonathan'; 
