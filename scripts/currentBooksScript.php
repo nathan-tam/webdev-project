@@ -66,7 +66,6 @@
             "ISBN" => $bookInfo["ISBN"],
             "title" => $bookInfo["title"],
             "author" => $bookInfo["author"],
-            "description" => $bookInfo["description"],
             "coverImage" => $bookInfo["coverImage"]
         );
     } 
@@ -88,7 +87,6 @@
         echo '<div class="bookContents">';
         echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
         echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
-        echo '<p class="bookDescription">' . htmlspecialchars($book["description"]) . '</p>';
         // Hidden form so that the Remove Book button can communicate which book it belongs to
      //   echo '<form method="POST" action="scripts/removeBookScript.php">';
      //   echo '<input type="hidden" name="isbntoremove" value="' . htmlspecialchars($book["ISBN"]) . '">';   

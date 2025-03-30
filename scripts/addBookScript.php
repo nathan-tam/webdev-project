@@ -1,5 +1,4 @@
 <?php
-
     // Written by NT
     session_start();
 
