@@ -38,7 +38,7 @@
                      <div class="bookContents">
                          <p class="bookTitle">Title</p>
                          <p class="bookDescription">Author</p>
-                         <p class="bookDescription">Description</p>
+                         <p class="bookDescription">Year</p>
                      </div>
                  </div>
                  </div> -->
