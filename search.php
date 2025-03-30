@@ -61,6 +61,15 @@
         <!-- Header module on all pages (booked logo and rightside link) -->
         <?php include('modules/mod-header.php'); ?>
         <main>
+            <div>
+                <?php // If a book was added, then show a message: -JL
+                    if (isset($_SESSION["bookadded"])) { ?>
+                        <div id="bookAddedDiv">
+                            <p class="error"><?php echo $_SESSION["bookadded"]; ?></p>
+                        </div>
+                        <?php unset($_SESSION["bookadded"]); 
+                    } ?>
+            </div>
             <div id="searchBar">
                 <form id="searchform" action="search.php" method="POST">
                     <input id="searchBarItem" type="text" name="query" placeholder="Enter book title..." value="<?php echo htmlspecialchars($query); ?>">

@@ -37,6 +37,9 @@
     $query = "INSERT INTO usersbooks(userID, ISBN) VALUES ('$userId', '$isbn');";
     $doQuery = executeQuery($query, $dbConnection);
 
+    closeConnection($dbConnection);
+
+    $_SESSION['bookadded']="Book added to your collection!";
     header("Location: ../search.php"); // Redirect back to the search page
     exit();
 ?>
