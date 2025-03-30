@@ -1,8 +1,16 @@
 <?php
+
+    // Written by NT
     session_start();
 
     if (!isset($_SESSION["username"])) {
-        header("Location: index.php");
+        header("Location: ../index.php");
+        exit();
+    }
+
+    // Edge case - JL
+    if (!isset($_SESSION["userID"])) {
+        header("Location: ../index.php");
         exit();
     }
     
