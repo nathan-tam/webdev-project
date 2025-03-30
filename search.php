@@ -1,12 +1,14 @@
 <?php session_start(); ?>
 <?php
-    // f there's no user set, kick the browser back to the index.php page
-    // if (!isset($_SESSION["username"])) {
-    //     header("Location: index.php");
-    //     exit();
-    // }
+    // if there's no user set, kick the browser back to the index.php page
+    if (!isset($_SESSION["username"])) {
+        header("Location: index.php");
+        exit();
+    }
 
-    $query = "";        // Initialize the query variable
+
+    // initialize the query variable, breaks otherwise
+    $query = "";
 
     if (isset($_POST["query"])) {
         $query = $_POST["query"];
@@ -15,10 +17,10 @@
         // urlencode() is used to convert a string into something useable in a URL (e.g., spaces, &, = become %20, %26, %3D)
         $url = "https://www.googleapis.com/books/v1/volumes?q=" . urlencode($query) . "&maxResults=5&key=" . $apiKey;
 
-        $jsonResponse = file_get_contents($url);    // sends a GET request to the URL, then stores the response
+        $jsonResponse = file_get_contents($url);    // file_get_contents() sends a GET request to the URL, then stores the response
         $data = json_decode($jsonResponse, true);   // 'true' here means we want the result as an associative array (dictionary)
 
-        // checks to see if the 'items' array exists in the response (the 'items' array contains all book data)
+        // checks to see if the 'items' array exists in the response ('items' is an array in the response that contains all book data)
         if (isset($data['items']) && is_array($data['items'])) {
             foreach ($data['items'] as $item) {
                 // 'volumeInfo' is the key in the key-value pair so we must specify it to get the book data
@@ -81,9 +83,16 @@
                                 <p class="bookDescription">ISBN: <?php echo htmlspecialchars($book['isbn']); ?></p>
                             </div>
                             <div class="AddBookContainer">
-                                <button id="AddBookButton" type="button">+ Add Book</button>
+                                <form action="scripts/addBookScript.php" method="POST">
+                                    <input type="hidden" name="title" value="<?php echo htmlspecialchars($book['title']); ?>">
+                                    <input type="hidden" name="authors" value="<?php echo htmlspecialchars(implode(', ', $book['authors'])); ?>">
+                                    <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
+                                    <input type="hidden" name="thumbnail" value="<?php echo htmlspecialchars($book['thumbnail']); ?>">
+                                    <button id="AddBookButton" type="submit">+ Add Book</button>
+                                </form>
                             </div>
                         </div>
+                        <br>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <?php if ($_SERVER["REQUEST_METHOD"] === "POST"): ?>

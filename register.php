@@ -23,6 +23,16 @@
 
         <main>
             <div id="registrationFormContainer">
+
+
+            <?php // If there was a registration error, regscript will have set the error session variable. -JL
+                    // Show the error for the user and then clear the variable
+                    // This shouldn't happen, but just in case...
+                     if (isset($_SESSION["registererror"])) { ?>
+                        <p class="error"><?php echo $_SESSION["registererror"]; ?></p>
+                        <?php unset($_SESSION["registererror"]); } ?>
+
+
                 <form id="registrationBackground" method="POST" action="scripts/registerScript.php">
                     <div class="registrationItem">
                         <label class="registerLabel" for="username">Username:</label>
