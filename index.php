@@ -23,9 +23,15 @@
         <main>
             <h1 id="welcomeBanner">welcome to booked!</h1>
             <div id="buttonContainer">
+<<<<<<< HEAD
+                <a href="login.php"><button class="welcomeButton">Login</button></a>
+                <a href="register.php"><button class="welcomeButton">Sign Up</button></a>
+                <a href="aboutUs.php"><button class="welcomeButton">About Us</button></a>
+=======
                 <div><a href="login.php"><button class="welcomeButton">Login</button></a></div>
                 <div><a href="register.php"><button class="welcomeButton">Sign Up</button></a></div>
                 <div><a href="aboutUs.php"><button class="welcomeButton">About Us</button></a></div>
+>>>>>>> refs/remotes/origin/main
             </div>
             <div>
                 <?php if (isset($_SESSION["dberror"])){
