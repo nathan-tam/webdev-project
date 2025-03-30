@@ -22,6 +22,21 @@
     $year = $_POST["year"];
     $thumbnail = $_POST["thumbnail"];
     
+    // check if the user already added this book before... -JL
+    $dbConnection = databaseConnection();
+    $query = "SELECT * FROM usersbooks WHERE userID = '$userId' AND isbn = '$isbn'";
+    $doQuery = executeQuery($query, $dbConnection);
+    $row = mysqli_fetch_assoc($doQuery);
+
+    // If there are any results, the userid-isbn pair is present, so they have the book already
+    if ($row) {
+        closeConnection($dbConnection);
+        $_SESSION['bookadded']="Book already exists in your collection!";
+        header("Location: ../search.php"); // Redirect back to the search page
+        exit();
+    }
+
+
     // check if the book already exists in the 'books' table
     $dbConnection = databaseConnection();
     $query = "SELECT * FROM books WHERE isbn = $isbn";

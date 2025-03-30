@@ -69,7 +69,8 @@
         <?php include('modules/mod-header.php'); ?>
         <main>
             <div>
-                <?php // If a book was added, then show a message: -JL
+                <?php // Used to show messages when the user does things like add a book. -JL
+                    // Also used to show an error if the same book is added twice
                     if (isset($_SESSION["bookadded"])) { ?>
                         <div id="bookAddedDiv">
                             <p class="error"><?php echo $_SESSION["bookadded"]; ?></p>
