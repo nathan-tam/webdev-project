@@ -286,7 +286,7 @@ button {
 
     background-color: #cfcfcf;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 70%;
     transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
     overflow: hidden;
@@ -297,11 +297,7 @@ button {
     display: flex;
     flex-direction: row;
 
-    background-color: #cfcfcf;
-    padding: 10px;
-    margin-bottom: 10px;
-
-    
+    background-color: #cfcfcf;  
 
     border-radius: 10px;
     box-sizing: border-box;
@@ -331,16 +327,16 @@ button {
 .bookContents {
     display: flex;
     flex-direction: column;
-    /*Top Right Bottom Left*/
-    padding: 0px 10px 0px 10px;
     flex-grow: 2;
 
     color: #000000;
 }
 
 .bookTitle {
-    font-size: 400%;
+    font-size: 200%;
     margin: 0px;
+    /*Top Right Bottom Left*/
+    padding: 0px 10px 0px 10px;
 }
 
 .bookInfo {
@@ -367,6 +363,12 @@ button {
     padding: 10px 32px;
     font-size: 18px;
     min-width: 180px;
+}
+
+.bookAuthor {
+    margin: 0px;
+    /*Top Right Bottom Left*/
+    padding: 0px 10px 0px 10px;
 }
 
 /*-------------------------------------------------------------------------------------*/
