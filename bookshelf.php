@@ -2,6 +2,7 @@
 
 <?php
     // If there's no user set, kick the browser back to the index.php page -JL
+    // Only logged-in users allowed on this page.
     if (!isset($_SESSION["username"])) {
 
         header("Location: index.php");   

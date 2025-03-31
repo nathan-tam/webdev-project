@@ -2,15 +2,20 @@
     session_start();
 
 
-     // TEST CODE FOR NON-DB USER: -JL
+    // TEST CODE FOR NON-DB USER: -JL
+    // Allows you to log in without the database
     //if ($_POST['username'] == "test"){
     //    $_SESSION["username"] = "test";
+    //    $_SESSION["userID"] = "999";
     //    header("Location: ../bookshelf.php");
     //    exit();
     //}
 
     include_once("connector.php");
 
+
+    // Password should be arriving in a hashed form from the front-end
+    // We're double-hashing it! -JL
 
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];

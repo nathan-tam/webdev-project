@@ -2,6 +2,10 @@
     session_start();
     include_once("connector.php");
 
+
+    // Incoming $_POST-password is hashed from the front-end
+    // We're double-hashing it! -JL
+
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];
         $password = $_POST["password"];

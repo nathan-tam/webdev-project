@@ -53,5 +53,38 @@
                 </div>
             </div>
         </main>
+
+        <?php // Password hashing using Browser and JS.
+             // Will send hash to backend where it'll be hashed again and compared to the database hash.
+         ?>
+
+        <script>
+            document.getElementById("loginForm").addEventListener("submit", async function (event) {
+                // Prevent the form from submitting immediately
+                event.preventDefault();
+
+                // Get the password and confirmPassword input fields
+                const passwordField = document.getElementById("password");
+                const confirmPasswordField = document.getElementById("confirmPassword");
+
+                // Hash the password using the Web Crypto API
+                // Black magic sorcery for hashing in the browser rather than getting a library
+                const encoder = new TextEncoder();
+
+                const hashPassword = async (value) => {
+                    const data = encoder.encode(value);
+                    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+                };
+
+                // Hash both password and confirmPassword fields
+                passwordField.value = await hashPassword(passwordField.value);
+                confirmPasswordField.value = await hashPassword(confirmPasswordField.value);
+
+                // Submit the form
+                this.submit();
+            });
+    </script>
     </body>
 </html>
