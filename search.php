@@ -26,15 +26,16 @@
                 $title = $item['volumeInfo']['title'] ?? 'No Title';
                 $authors = $item['volumeInfo']['authors'] ?? ['Unknown Author'];
                 $thumbnail = $item['volumeInfo']['imageLinks']['thumbnail'] ?? 'bookNoCover.png';
-                $isbn = 'No ISBN found';
-                $description = $item['volumeInfo']['description'] ?? 'no description was available for this book';
-                $publishDate = $item['volumeInfo']['publishedDate'] ?? "unknown";
+                $isbn = 'No ISBN';
+                $description = $item['volumeInfo']['description'] ?? '';
+                $publishDate = $item['volumeInfo']['publishedDate'] ?? 'unknown';
                 $publisher = $item['volumeInfo']['publisher'] ?? 'unknown publisher';
 
 
                 // Extract ISBN
                 if (isset($item['volumeInfo']['industryIdentifiers'])) {
                     foreach ($item['volumeInfo']['industryIdentifiers'] as $identifier) {
+                        // prefers ISBN_13. will never set ISBN_10 if ISBN_13 is present
                         if ($identifier['type'] === 'ISBN_13') {
                             $isbn = $identifier['identifier'];
                             break;
@@ -110,7 +111,7 @@
                                         <input type="hidden" name="isbn" value="<?php echo htmlspecialchars($book['isbn']); ?>">
                                         <input type="hidden" name="thumbnail" value="<?php echo htmlspecialchars($book['thumbnail']); ?>">
                                         <input type="hidden" name="year" value="<?php echo htmlspecialchars($book['publishDate']); ?>">
-                                        <button class="AddBookButton" type="submit">+ Add Book</button>
+                                        <button id="AddBookButton" type="submit">+ Add Book</button>
                                     </form>
                                 </div>
                             </div>
@@ -136,8 +137,8 @@
 
             // The scripting validates input for the search bar.
             document.addEventListener('DOMContentLoaded', function () {
-                var form = document.getElementById('searchform');
-                form.addEventListener('submit', validateSearch);    
+            var form = document.getElementById('searchform');
+            form.addEventListener('submit', validateSearch);    
             });
 
             function validateSearch(event) {
