@@ -1,9 +1,15 @@
 <?php
     session_start();
 
+    // This script handles logging in a user
+    // A username and password-hash are handed over via POST
+    // The script checks the database for a matching username and password
+    // If a match is found, the user is logged in and redirected to the bookshelf page
+
 
     // TEST CODE FOR NON-DB USER: -JL
     // Allows you to log in without the database
+    // To remain commented, except for testing purposes
     //if ($_POST['username'] == "test"){
     //    $_SESSION["username"] = "test";
     //    $_SESSION["userID"] = "999";
@@ -11,11 +17,14 @@
     //    exit();
     //}
 
-    include_once("connector.php");
 
 
     // Password should be arriving in a hashed form from the front-end
     // We're double-hashing it! -JL
+
+    include_once("connector.php");
+
+    // Be careful making edits because of the nested IF statements.
 
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];
@@ -38,8 +47,8 @@
         $row = mysqli_fetch_assoc($doQuery);
 
 
-        // Added some extra error handling -- sets a SESSION variable that shows on login page -JL
-        // Also kicks the user back to the login page
+        // Nathan's password verification code.
+        // You have to use password_verify to check the password because of the salt.
         if ($row) {
             // verify the password
             if (password_verify($password, $row["passwordHash"])) {
@@ -58,6 +67,9 @@
 
 
             } else {
+
+               // Added error handling -- sets a SESSION variable error that shows on login page -JL
+                // Also kicks the user back to the login page
                 closeConnection($dbConnection);
 
                 $_SESSION["loginerror"] = "Invalid password.";
@@ -74,7 +86,8 @@
 
         
     } else {
-        closeConnection($dbConnection);
+
+        // A POST variable is missing for some reason, kick the user back to the login page
 
         $_SESSION["loginerror"] = "Invalid login request. Please try again.";
         header("Location: ../login.php");

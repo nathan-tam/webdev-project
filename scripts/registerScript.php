@@ -2,6 +2,9 @@
     session_start();
     include_once("connector.php");
 
+    // This script registers a new user in the database
+    // Enters their username and hashed password into the database
+    // The database automatically assigns them a userID (so it's not sent from here)
 
     // Incoming $_POST-password is hashed from the front-end
     // We're double-hashing it! -JL
@@ -10,7 +13,7 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // sanitize the username. Kick the user back to the registration page if mischief is occurring -JL
+        // Sanitize the username. Kick the user back to the registration page if mischief is occurring -JL
         if (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
             $_SESSION["registererror"] = "Invalid username: no special characters are allowed.";
             header("Location: ../register.php");
@@ -22,10 +25,11 @@
         $query = "SELECT * FROM users WHERE username = '$username'";
         $doQuery = executeQuery($query, $dbConnection);
 
-         // Username is taken, so send the user back to the registration with an error -JL
-         // SESSION variable used to show the error on the reg page
+
          // If any rows are returned, that username already exists
         if (mysqli_num_rows($doQuery) > 0) {
+            // Username is taken, so send the user back to the registration with an error -JL
+            // SESSION variable used to show the error on the reg page
             closeConnection($dbConnection);
             $_SESSION["registererror"] = "Username is already taken. Please choose a different one.";
             header("Location: ../register.php");
@@ -33,7 +37,7 @@
         }
 
 
-        // Password gets hashed, so should be safe for SQL
+        // Password gets hashed on front end and here, so should be safe for SQL
         $password = password_hash($password, PASSWORD_DEFAULT);
 
 
@@ -52,7 +56,7 @@
             die();
         }
     } else {
-        // Changed error handling to send user back to reg page -JL
+        // If the POST variables are missing for some reason, kick the user back to the reg page
         $_SESSION["registererror"] = "Invalid registration request. Please try again.";
         header("Location: ../register.php");
         die();
