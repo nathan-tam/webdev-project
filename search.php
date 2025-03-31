@@ -25,7 +25,7 @@
                 // 'volumeInfo' is the key in the key-value pair so we must specify it to get the book data
                 $title = $item['volumeInfo']['title'] ?? 'No Title';
                 $authors = $item['volumeInfo']['authors'] ?? ['Unknown Author'];
-                $thumbnail = $item['volumeInfo']['imageLinks']['thumbnail'] ?? 'bookNoCover.png';
+                $thumbnail = $item['volumeInfo']['imageLinks']['thumbnail'] ?? 'images/bookNoCover.png';
                 $isbn = 'No ISBN';
                 $description = $item['volumeInfo']['description'] ?? '';
                 $publishDate = $item['volumeInfo']['publishedDate'] ?? 'unknown';

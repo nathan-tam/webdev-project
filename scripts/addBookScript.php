@@ -22,6 +22,15 @@
     $year = $_POST["year"];
     $thumbnail = $_POST["thumbnail"];
     
+
+    // sanitize the username and kick the user back to the login page if mischief is occurring
+    if (!preg_match("/^[0-9]+$/", $userId)) {
+        $_SESSION["bookadded"] = "Invalid search request. Please try again.";
+        header("Location: ../search.php");
+        die();
+    }
+    
+
     // check if the user already added this book before... -JL
     $dbConnection = databaseConnection();
     $query = "SELECT * FROM usersbooks WHERE userID = '$userId' AND isbn = '$isbn'";
