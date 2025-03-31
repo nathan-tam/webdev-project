@@ -357,7 +357,6 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
 .bookDescription {
     max-height: 0px;
     overflow: hidden;
-    padding: 20px;
     font-size:x-large;
     color: black;
     transition: max-height 0.3s ease-in-out;
@@ -365,6 +364,7 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
 
 .bookItem:hover .bookDescription{
     max-height: 500px;
+    margin: 0px;
 }
 
 .bookYear {
@@ -410,10 +410,10 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
 }
 
 .AddBookButton {
-    align-items: center;
     padding: 10px 32px;
     font-size: 18px;
-    min-width: 180px;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .bookAuthor {
@@ -545,7 +545,7 @@ Formatting for DB error message on index.php page -JL
     cursor: pointer;
 }
 
-.confirmButton:hover, .cancelButton:hover {
+.confirmButton:hover, .cancelButton:hover, button:hover, #bookshelfButton:hover, .welcomeButton:hover {
     opacity: 0.9;
 }
 
