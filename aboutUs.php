@@ -1,9 +1,7 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<html id="background" lang="en">
-<?php   // Jonathan is currently working on this page.
-        // PHP modules are being tested here. 
-?>
+<html lang="en">
+
     <head>
         <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>booked</title>
@@ -11,7 +9,7 @@
 			<meta name="author" content="booked development team">
 			<meta name="email" content="bookeddev@algonquincollege.com">
     </head>
-    <body>
+    <body id="background">
         <!-- Header module on all pages (booked logo and rightside link) -->
         <?php include('modules/mod-header.php'); ?>
         <main>

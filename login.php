@@ -8,13 +8,13 @@
     }
 ?>
 <!DOCTYPE html>
-<html id="background" lang="en">
+<html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
         <title>Login</title>
         <script src="scripts/formvalidator.js"></script>
     </head>
-    <body>
+    <body id="background">
 
         <!-- Header module on all pages (booked logo and rightside link) -->
         <?php include('modules/mod-header.php'); ?>
