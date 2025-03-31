@@ -115,13 +115,45 @@ button {
 }
 
 /*Fix spacing between buttons*/
+/*
 .welcomeButton {
-    /*Top Right Bottom Left*/
+    /*Top Right Bottom Left
     margin: 10px 20px 0px 20px;
     min-width: 200px;
     width: 25%;
     justify-content: center;
 }
+*/
+/* Style for the welcome buttons */
+/*Converting welcome button links into buttons
+Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
+.welcomeButton {
+    display: inline-block;              /* Makes the link behave like a block element */
+    padding: 10px 20px;               
+    font-size: 16px; 
+    text-align: center;                 /* Centers the text inside the button */
+    background-color: #ca637d;
+    color:#441752;
+    font-weight: bold;
+    border: none;                       /* Removes any border */
+    border-radius: 10px;                /* Adds rounded corners */
+    cursor: pointer;                    /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Adds a smooth transition effect */
+  
+    /*Top Right Bottom Left */
+    margin: 10px 20px 0px 20px;
+    min-width: 200px;
+    width: 25%;
+}
+
+/*Potential hover effect for buttons?
+.welcomeButton:hover {
+    background-color: #b0526d;          
+    color: #ffffff;                     
+}
+*/
+
+
 /*-------------------------------------------------------------------------------------*/
 /*                            CSS for Registration Page                                */
 /*-------------------------------------------------------------------------------------*/
@@ -434,18 +466,11 @@ button {
     }
 }
 
-/*-------------------------------------------------------------------------------------*/
-/*                                    CSS For Mobile Support                           */
-/*-------------------------------------------------------------------------------------*/
-@media only screen and (max-width: 640px)  {
-
-}
 
 
 
-
-
-/* Formatting for DB error message on index.php page -JL
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Formatting for DB error message on index.php page -JL
   Likely should be changed */
 #dberrormessage{
     background-color: #441752;
@@ -458,6 +483,8 @@ button {
     margin: 10px;
 }
 
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* Modal container for bookshelf page (removing a book warning) - JL */
 .modal {
     display: none; /* Hidden by default */

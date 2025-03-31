@@ -19,10 +19,11 @@
     <body id="homepageBody">
         <main>
             <h1 id="welcomeBanner">welcome to booked!</h1>
+            <!-- These links look like buttons because they're part of welcomeButton due to CSS! -JL -->
             <div id="buttonContainer">
-                <a href="login.php"><button class="welcomeButton">Login</button></a>
-                <a href="register.php"><button class="welcomeButton">Sign Up</button></a>
-                <a href="aboutUs.php"><button class="welcomeButton">About Us</button></a>
+                <a href="login.php" class="welcomeButton">Login</a>
+                <a href="register.php" class="welcomeButton">Sign Up</a>
+                <a href="aboutUs.php" class="welcomeButton">About Us</a>
             </div>
             <div>
             <!-- Displays an error if the database can't connect  -->
