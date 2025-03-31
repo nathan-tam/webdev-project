@@ -4,10 +4,10 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
-        <title>booked</title>
-            <meta charset="UTF-8">
-			<meta name="author" content="booked development team">
-			<meta name="email" content="bookeddev@algonquincollege.com">
+        <title>booked - About Us</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="booked development team">
+        <meta name="email" content="bookeddev@algonquincollege.com">
     </head>
     <body id="background">
         <!-- Header module on all pages (booked logo and rightside link) -->

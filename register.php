@@ -14,7 +14,10 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
-        <title>Login/Register</title>
+        <title>booked - Register</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="booked development team">
+        <meta name="email" content="bookeddev@algonquincollege.com">
         <script src="scripts/formvalidator.js"></script>
     </head>
     <body id="background">

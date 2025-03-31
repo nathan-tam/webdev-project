@@ -62,7 +62,10 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
-        <title>Search Results</title>
+        <title>booked - Search</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="booked development team">
+        <meta name="email" content="bookeddev@algonquincollege.com">
     </head>
     <body id="background">
         <!-- Header module on all pages (booked logo and rightside link) -->

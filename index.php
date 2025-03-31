@@ -15,6 +15,9 @@
     <head>
     <link rel="stylesheet" type="text/css" href="main-stylesheet.css">
     <title>booked</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="booked development team">
+    <meta name="email" content="bookeddev@algonquincollege.com">
     </head>
     <body id="homepageBody">
         <main>
