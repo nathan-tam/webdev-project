@@ -15,6 +15,7 @@
     
     include_once("connector.php");
     
+
     $userId = $_SESSION["userID"];
     $isbn = $_POST["isbn"];
     $title = $_POST["title"];
@@ -22,6 +23,11 @@
     $year = $_POST["year"];
     $thumbnail = $_POST["thumbnail"];
     
+    // 
+    // The variables should be sanitized before we do any SQL queries
+    // Potential work to do before submitting! -JL
+    //
+
 
     // sanitize the username and kick the user back to the login page if mischief is occurring
     if (!preg_match("/^[0-9]+$/", $userId)) {
