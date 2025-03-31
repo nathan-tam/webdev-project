@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var passwordfield = document.getElementById('password');
     passwordfield.addEventListener('input', validateForm);
 
-    let confirmPasswordfeild = document.getElementById("confirmPassword");
-    if (confirmPasswordfeild != null){
+    let confirmPasswordField = document.getElementById("confirmPassword");
+    if (confirmPasswordField != null){
         passwordfield.addEventListener('input', validateForm); 
     }
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function validateForm() {
     let name = document.getElementById("username").value;
     let password = document.getElementById("password").value;    
-    let confirmPassword = document.getElementById("confirmPassword");
+    let confirmPasswordField = document.getElementById("confirmPassword");
 
     let nameError = document.getElementById("nameError");
     let passwordError = document.getElementById("passwordError");
@@ -54,7 +54,7 @@ function validateForm() {
     
     // checks if the password field is empty
     if (password === "") {
-        passwordError.textContent = "Password is required!";
+        passwordError.textContent = "Password is required.";
         valid = false;
     // checks if the confirm password field is empty
     } else if (passwordError != null && confirmPassword === "") {

@@ -25,6 +25,7 @@
                 </div>
 
                 <div class="aboutUsItem">
+                    <!-- Caricature generated using Google Gemini at https://gemini.google.com/app -->
                     <img class="aboutUsImage" src="images/Ryan-AI.jpg" alt="A caricature of a young man with technology-related cartoon images around him.">
                     <div class="aboutUsContents">
                         <p class="aboutUsTitle">Ryan Marshall</p>
