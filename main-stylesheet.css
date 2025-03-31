@@ -296,10 +296,12 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
     margin-right: 10px;
     width: 50%;
     background-color: #cfcfcf;
+    font-size: 18px;
 }
 
 #searchButton {
     margin-left: 10px;
+    font-size: 18px;
 }
 
 #results {
@@ -554,4 +556,9 @@ Formatting for DB error message on index.php page -JL
 /*-------------------------------------------------------------------------------------*/
 #nobooksinbookshelf {
     font-size: 20px;
+}
+
+.error {
+    font-size: 18px;
+    color: black;
 }
