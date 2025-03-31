@@ -1,5 +1,6 @@
 <?php
 
+// Some functions used to interact with the database
 
 // Written by Professor Frank Emanuel
 // Downloaded from https://github.com/PomoRev/NET3010_25W/blob/tutorial/crosswordDBhelper.php
@@ -13,6 +14,9 @@ function databaseConnection() {
     $dbName = "bookedbased";
 
     // Experimental code to handle the database being down
+    // A message will be displayed on the index.php page if a database transaction is attempted while the database isn't working
+    // The user shouldn't see this message, but just in case.... -JL
+
     // Enable exceptions for mysqli errors
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 

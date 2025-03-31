@@ -1,45 +1,65 @@
 <?php
-    // Written by JL
-
 
     // This script gets the books for the user's bookshelf and outputs the HTML for bookshelf.php
+    // Called every time the bookshelf page is loaded
+
     // It has to do multiple SQL calls:
     //   What's the userID for the username?
     //   What ISBNs are attached to the userID?
     //   Get the book info for those ISBNs (this needs an SQL call for each book)
+    //
+    // This script could be optimized!
+    // Written by JL
 
     include_once("connector.php");
 
-    if (isset($_SESSION["username"])) {
-        $username = $_SESSION["username"];
-    } else {
-        //  Stop the script immediately if the user isn't logged in.
-        // This script is called from bookshelf.php which required you to be logged in
-        die("User not logged in.");
+
+    // userID should always be set - JL
+    if (isset($_SESSION["userID"])) {
+
+        $userID = $_SESSION["userID"];
+
+    }
+    else
+    {
+        // Stop the script immediately if the user isn't properly logged in.
+        // This script is called from bookshelf.php which requires you to be logged in
+        // This should never happen
+        header("Location: ../index.php");
+        exit();
     }
 
-    $dbConnection = databaseConnection();
+
+    // sanitize the username and don't show any books if mischief is occurring
+    if (!preg_match("/^[0-9]+$/", $userID)) {
+        echo '<p id="nobooksinbookshelf">There appears to be a problem with your userID. Please sign-out and log in again.</p>';
+        die();
+    }
+
+    //userID is the only input that we need to sanitize, since everything else comes from the DB
+
+
 
     // Get the userID associated with the username
-    $query = "SELECT userID FROM users WHERE username = '$username';";
-    $doQuery = executeQuery($query, $dbConnection);
+    //$query = "SELECT userID FROM users WHERE username = '$username';";
+    //$doQuery = executeQuery($query, $dbConnection);
 
 
     // EDGE CASE CHECK: Check if the query failed or there are no rows returned at all
     // This occurs if a user is logged in, but there's no userID in the database for them
     // This should never happen...
-    if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
-        echo '<p id="nobooksinbookshelf">No bookshelf registered for your account! Please contact technical support.</p>';
-        closeConnection($dbConnection);
-        exit; // Stop further processing
-    }
+   // if ($doQuery === false || mysqli_num_rows($doQuery) === 0) {
+   //     echo '<p id="nobooksinbookshelf">No bookshelf registered for your account! Please contact technical support.</p>';
+   //     closeConnection($dbConnection);
+   //     exit; // Stop further processing
+   // }
     
-    $userID = mysqli_fetch_assoc($doQuery)["userID"];
+    //$userID = mysqli_fetch_assoc($doQuery)["userID"];
 
+    $dbConnection = databaseConnection();
 
-    // Get the ISBNs of the books associated with the userID
+    // Get the ISBNs of the books associated with the userID and put them into an array
     $query = "SELECT * FROM usersbooks WHERE userID = '$userID';";
-
     $doQuery = executeQuery($query, $dbConnection);
     $bookisbns = array();
 
@@ -48,8 +68,8 @@
     }
 
     // Check if the user has any books in the database
-    // This is a normal situation
     // If there are no books, the bookshelf page will just have a simple message instead of the normal book container HTML
+    // This is a normal situation (like for a new user)
     if (empty($bookisbns)) {
         echo '<p id="nobooksinbookshelf">No books in your bookshelf yet!</p>';
         closeConnection($dbConnection);
@@ -83,9 +103,9 @@
             echo '<div class="bookOverview">';
                 echo '<img class="bookCover" src="' . htmlspecialchars($book["coverImage"]) . '" alt="Book cover">';
                 echo '<div class="bookContents">';
-                    echo '<p class="bookTitle">' . htmlspecialchars($book["title"]) . '</p>';
-                    echo '<p class="bookAuthor">' . htmlspecialchars($book["author"]) . '</p>';
-                    echo ('<p class="bookYear"> Date of publishing: ' . htmlspecialchars($book["year"]) . '</p>');
+                    echo '<p class="bookTitle">' . htmlspecialchars_decode($book["title"]) . '</p>';
+                    echo '<p class="bookAuthor">' . htmlspecialchars_decode($book["author"]) . '</p>';
+                    echo ('<p class="bookYear"> Date of publishing: ' . htmlspecialchars_decode($book["year"]) . '</p>');
                 echo '</div>';
                 echo '<div class="AddBookContainer">';
                     echo '<form>';
