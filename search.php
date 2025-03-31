@@ -1,5 +1,15 @@
 <?php session_start(); ?>
 <?php
+
+    // This page lets users search for books
+    // It also displays the results
+    // You can add books directly from the search results
+
+    // The search results are pulled using the Google Books API
+    // Written by Ryan and Nathan
+
+
+
     // if there's no user set, kick the browser back to the index.php page -JL
     // Only logged-in users allowed on this page.
 
@@ -13,10 +23,13 @@
 
     if (isset($_POST["query"])) {
         $query = $_POST["query"];
-        $apiKey = "AIzaSyCN0rx7SH_UZjiW1yNeeB-fOyjh0khMbc8";
+        $apiKey = "AIzaSyCN0rx7SH_UZjiW1yNeeB-fOyjh0khMbc8";    // hardcoded Google Books API from Ryan
 
         // urlencode() is used to convert a string into something useable in a URL (e.g., spaces, &, = become %20, %26, %3D)
         $url = "https://www.googleapis.com/books/v1/volumes?q=" . urlencode($query) . "&maxResults=5&key=" . $apiKey;
+
+        // MAX RESULTS is set to 5 up above.
+
 
         $jsonResponse = file_get_contents($url);    // file_get_contents() sends a GET request to the URL, then stores the response
         $data = json_decode($jsonResponse, true);   // 'true' here means we want the result as an associative array (dictionary)
@@ -91,6 +104,8 @@
                 </form>
             </div>
             
+            <?php   // This section creates the search results
+            ?>
             <div class="bookContainer">
                 <?php if (!empty($query)): ?>
                     <h2>Search Results for "<?php echo htmlspecialchars($query); ?>"</h2>
@@ -106,6 +121,8 @@
                                     <p class="bookInfo">ISBN: <?php echo htmlspecialchars($book['isbn']); ?></p>
                                     <p class="bookInfo">Published by: <?php echo htmlspecialchars($book['publisher']); ?> on <?php echo htmlspecialchars($book['publishDate']); ?> </p>
                                 </div>
+                                <?php   // This hidden form is used to pass the book info to the addBookScript.php script
+                                ?>
                                 <div class="AddBookContainer">
                                     <form action="scripts/addBookScript.php" method="POST">
                                         <input type="hidden" name="title" value="<?php echo htmlspecialchars($book['title']); ?>">

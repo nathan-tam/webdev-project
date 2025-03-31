@@ -1,7 +1,7 @@
 <?php
 
 // Written by Jonathan Latkowcer
-// This script is called when someone pushes the logout button.
+// This script is called when someone pushes the signout button.
 // Destroys the session and clear variables, then sends the user back to the home/login page.
 
 session_start();
