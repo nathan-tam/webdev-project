@@ -1,4 +1,11 @@
 <?php
+
+
+// Written by Professor Frank Emanuel
+// Downloaded from https://github.com/PomoRev/NET3010_25W/blob/tutorial/crosswordDBhelper.php
+// Modified by Jonathan Latkowcer and Nathan Tam
+
+
 function databaseConnection() {
     $server = "localhost";
     $dbUser = "root";
