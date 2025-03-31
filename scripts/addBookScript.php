@@ -7,7 +7,7 @@
         exit();
     }
 
-    // Edge case - JL
+    // Edge case userID should always be set if username is set - JL
     if (!isset($_SESSION["userID"])) {
         header("Location: ../index.php");
         exit();

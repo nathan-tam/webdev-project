@@ -16,9 +16,11 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // sanitize the username
+        // sanitize the username and kick the user back to the login page if mischief is occurring
         if (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
-            die("Invalid username.");
+            $_SESSION["loginerror"] = "Invalid login request. Please try again.";
+            header("Location: ../login.php");
+            die();
         }
 
         $dbConnection = databaseConnection();

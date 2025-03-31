@@ -6,7 +6,7 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // sanitize the username
+        // sanitize the username. Kick the user back to the registration page if mischief is occurring -JL
         if (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
             $_SESSION["registererror"] = "Invalid username: no special characters are allowed.";
             header("Location: ../register.php");
@@ -29,7 +29,7 @@
         }
 
 
-
+        // Password gets hashed, so should be safe for SQL
         $password = password_hash($password, PASSWORD_DEFAULT);
 
 
@@ -54,6 +54,6 @@
         die();
     }
 
-    // If the registration worked, send the use to the login page.
+    // If the registration worked, send the user to the login page.
     header("Location: ../login.php")
 ?>
