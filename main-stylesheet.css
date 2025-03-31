@@ -261,7 +261,21 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
     margin-bottom: 4%;
 }
 
+
+/*Converting bookshelf button links into buttons
+Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
 #bookshelfButton {
+    display: inline-block;              /* Makes the link behave like a block element */
+    padding: 10px 20px;               
+    font-size: 16px; 
+    text-align: center;                 /* Centers the text inside the button */
+    background-color: #ca637d;
+    color:#441752;
+    font-weight: bold;
+    border: none;                       /* Removes any border */
+    border-radius: 50px;                /* Adds rounded corners */
+    cursor: pointer;                    /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Adds a smooth transition effect */
     padding: 10px 32px;
     font-size: 22px;
 }
@@ -394,7 +408,7 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
     
 }
 
-#AddBookButton {
+.AddBookButton {
     align-items: center;
     padding: 10px 32px;
     font-size: 18px;

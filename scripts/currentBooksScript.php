@@ -73,10 +73,6 @@
 
     closeConnection($dbConnection);
 
-    // Store the $books array in the session
-    //   (Not in use at the moment)
-    //$_SESSION["books"] = $books;
-
 
   // Iterate through $books and echo book
   // This section makes the HTML for the bookshelf page
@@ -93,7 +89,7 @@
                 echo '</div>';
                 echo '<div class="AddBookContainer">';
                     echo '<form>';
-                    echo '<button type="button" id="AddBookButton" onclick="showModal(\'' . htmlspecialchars($book["ISBN"]) . '\')">Remove Book</button>';
+                    echo '<button type="button" class="AddBookButton" onclick="showModal(\'' . htmlspecialchars($book["ISBN"]) . '\')">Remove Book</button>';
                     echo '</form>';
                 echo '</div>';
             echo '</div>';

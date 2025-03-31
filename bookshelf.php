@@ -26,7 +26,8 @@
                 <h2 id="welcomeText">Welcome, <?php echo $_SESSION["username"]; ?>!</h2>
             </div>
             <div id="addBook">
-                <a href="search.php"><button id="bookshelfButton">Add Book +</button></a>
+                <!-- Link turned into a button via CSS -->
+                <a href="search.php" id="bookshelfButton" class="button">Add Book +</a>
             </div>
             
             <?php // If a book was added, then show a message: -JL
@@ -36,7 +37,6 @@
                         </div>
                         <?php unset($_SESSION["bookremoved"]); 
                     } ?>
-            </div>
 
             <div class="bookContainer">
                 
