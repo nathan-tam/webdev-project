@@ -1,5 +1,3 @@
-- Password_hashing should happen on the front
-- Better backend sanitization
 
 Team leader rigamarole
 - style guide
