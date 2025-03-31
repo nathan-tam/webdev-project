@@ -26,8 +26,8 @@
                 $title = $item['volumeInfo']['title'] ?? 'No Title';
                 $authors = $item['volumeInfo']['authors'] ?? ['Unknown Author'];
                 $thumbnail = $item['volumeInfo']['imageLinks']['thumbnail'] ?? 'bookNoCover.png';
-                $isbn = 'No ISBN';
-                $description = $item['volumeInfo']['description'] ?? '';
+                $isbn = 'No ISBN found';
+                $description = $item['volumeInfo']['description'] ?? 'no description was available for this book';
                 $publishDate = $item['volumeInfo']['publishedDate'] ?? "unknown";
                 $publisher = $item['volumeInfo']['publisher'] ?? 'unknown publisher';
 
