@@ -215,7 +215,7 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
 
 #LoginError {
     background-color: #D4BEE4;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
 
     margin-bottom: 20px;
@@ -392,6 +392,7 @@ Putting buttons in links isn't HTML compliant, so we need fancy CSS -JL*/
 .bookInfo {
     margin: 0px;
     font-size: 125%;
+    padding: 0px 10px 0px 10px;
 }
 
 /*Format book cover better*/
@@ -519,27 +520,28 @@ Formatting for DB error message on index.php page -JL
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    /* width: 300px; */
+}
+
+#removeBookForm {
+    display: flex;
+    justify-content: center;
 }
 
 /* Buttons */
 .confirmButton {
-    background-color: #d9534f;
-    color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 32px;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
 }
 
 .cancelButton {
-    background-color: #5bc0de;
-    color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 32px;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
 }
 
