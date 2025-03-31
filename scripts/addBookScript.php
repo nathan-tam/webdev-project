@@ -8,18 +8,11 @@
     // The user ends up back on the search page with a message saying the book was added.
 
 
-
     // Written by NT
     session_start();
 
 
-
-    if (!isset($_SESSION["username"])) {
-        header("Location: ../index.php");
-        exit();
-    }
-
-    // Edge case userID should always be set if username is set - JL
+    // EDGE CASE - the userID should always be set if the user is here - JL
     if (!isset($_SESSION["userID"])) {
         header("Location: ../index.php");
         exit();
