@@ -3,11 +3,11 @@
 
 
      // TEST CODE FOR NON-DB USER: -JL
-    if ($_POST['username'] == "test"){
-        $_SESSION["username"] = "test";
-        header("Location: ../bookshelf.php");
-        exit();
-    }
+    //if ($_POST['username'] == "test"){
+    //    $_SESSION["username"] = "test";
+    //    header("Location: ../bookshelf.php");
+    //    exit();
+    //}
 
     include_once("connector.php");
 

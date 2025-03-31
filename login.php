@@ -37,7 +37,8 @@
 
                 <div id="loginBackground">
 
-                     <?php //You can use "test" as a username to bypass the database login. ?>
+                     <?php //You can use "test" as a username to bypass the database login.
+                     // Commented out in loginscript, currently. ?>
 
                     <form id="loginForm" method="POST" action="scripts/loginScript.php">
                         <input class="loginElements" type="text" id="username" name="username" placeholder="Username">

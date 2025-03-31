@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var passwordfield = document.getElementById('password');
     passwordfield.addEventListener('input', validateForm);
 
-    let confirmPasswordField = document.getElementById("confirmPassword");
-    if (confirmPasswordField != null){
-        passwordfield.addEventListener('input', validateForm); 
-    }
+    var confirmPasswordField = document.getElementById("confirmPassword");
+    confirmPasswordField.addEventListener('input', validateForm); 
+    
 
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         if (!validateForm()){
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function validateForm() {
     let name = document.getElementById("username").value;
     let password = document.getElementById("password").value;    
-    let confirmPasswordField = document.getElementById("confirmPassword");
+    let confirmPassword = document.getElementById("confirmPassword").value;
 
     let nameError = document.getElementById("nameError");
     let passwordError = document.getElementById("passwordError");
@@ -34,9 +33,8 @@ function validateForm() {
     // clear the previous errors
     nameError.textContent = "";
     passwordError.textContent = "";
-    if (confirmError != null){
-        confirmError.textContent = "";
-    }
+    confirmError.textContent = "";
+
     
     
     let valid = true;
@@ -53,18 +51,27 @@ function validateForm() {
     }
     
     // checks if the password field is empty
-    if (password === "") {
+    if (password == "") {
         passwordError.textContent = "Password is required.";
         valid = false;
+
     // checks if the confirm password field is empty
-    } else if (passwordError != null && confirmPassword === "") {
-        confirmError.textContent = "Password confirmation is required!";
+    }
+     if (confirmPassword == "") {
+        confirmError.textContent = "Please confirm your password.";
         valid = false;
+
     // checks if the password matches the password confirmation
-    } else if (confirmError != null && password !== confirmPassword.value) {
-        confirmError.textContent = "The passwords do not match!";
+    }
+    if (password != confirmPassword) {
+        confirmError.textContent = "The passwords do not match.";
         valid = false;
     }
+    else
+    {
+        confirmError.textContent = "";
+    }
+     
 
     return valid;
 }
