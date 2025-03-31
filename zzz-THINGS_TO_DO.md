@@ -1,7 +1,6 @@
 
 Team leader rigamarole
 - style guide
-- database creation
 
 
 Deliverables as per Group Project Guide:
@@ -15,7 +14,6 @@ document to set up the application/site for evalutation on the professor’s
 computer.
 
 Aimed at a client
-- web map
 - design guide
 - description of database
 -- describe what the database is doing and what's stored in it
