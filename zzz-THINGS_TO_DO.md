@@ -15,9 +15,7 @@ computer.
 
 Aimed at a client
 - design guide
-- description of database
--- describe what the database is doing and what's stored in it
--- why it's configured that way
+
 - special coding considerations
 
 -Use chatGPT for extra words if necessary
