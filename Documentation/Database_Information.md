@@ -1,4 +1,4 @@
-Database Design
+# Database Design
 
 The database is relatively simple, with only three tables. 
 

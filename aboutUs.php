@@ -54,5 +54,6 @@
 
             </div>
         </main>
+        <!-- All "real" photos taken by Jonathan Latkowcer. -->
     </body>
 </html>

@@ -7,6 +7,9 @@
 // Modified by Jonathan Latkowcer and Nathan Tam
 
 
+// DATABASE CONNECTION CONTROLS:
+//    Currently configured to work with default XAMPP database
+
 function databaseConnection() {
     $server = "localhost";
     $dbUser = "root";
@@ -14,7 +17,7 @@ function databaseConnection() {
     $dbName = "bookedbased";
 
     // Experimental code to handle the database being down
-    // A message will be displayed on the index.php page if a database transaction is attempted while the database isn't working
+    // A message will be displayed on the index.php page if a database transaction is attempted while the database isn't working 
     // The user shouldn't see this message, but just in case.... -JL
 
     // Enable exceptions for mysqli errors
