@@ -1,29 +1,42 @@
 # General Information - booked
-The purpose of this website is to create a cataloguing web application that allows users to catalogue the books they've read.
-* We use the ISBNdb API to retrieve information about a user’s entered books, allowing users to search by title or author.
-* A user’s collection of book information will be saved to and loaded from our own database in the backend.
-* Users can also record notes about the book that is saved with their catalogue.
+This document provides general information about the website.
 
-## Team Roles
+## Website general information
+The purpose of this website is to create a cataloguing web application that allows users to catalogue the books they've read. The website focuses on simplicity and mobile-friendly design.
+* The website is divided into two sections:
+    * The first section is visible to guests (users who aren't logged in) and consists of:
+        * A simple landing/welcome page
+        * An AboutUs page that describes the booked team
+        * A Registration page to allow users to make a new account and choose their password
+        * A Login page that allows users to sign in and access the restricted user-specific section of the website
+    * The second section of the website is restricted to logged-in users.
+        * A bookshelf page that displays a list of the books that the user has added to their account. Users can only see their own bookshelf. Users can remove books from the list as well.
+        * A search page that allows users to search for books. This page also displays the list of results and allows users to add books to their bookshelf.
+
+## Technical information
+
+* The website's Tech Stack is basic:
+    * HTML, CSS, and JavaScript for the front end.
+    * PHP and MySQL for the back end.
+    * XAMPP was used to provide the webserver and database
+    * Supporting programs for design and content include: VSCode, Copilot, Figma, LucidChart, Google Gemini
+
+* `connector.php` has the
+
+* Login and Registration information
+    * The login and registration system is designed to provide a secure and user-friendly authentication process. The login.php and registration.php pages allow users to supply their credentials, while the corresponding loginScript.php and registrationScript.php handles the backend logic. This ensures that only valid users can access their accounts while providing robust error handling and security measures. 
+        * Note that the user's password is hashed on the front end before being sent to the back end. The password is hashed a second time on the backend before being verified against the hashed password stored in the database.
+        * If an error occurs (username already taken, wrong password), the user is shown an informational error so they can try submitting their information again.
+    
+
+
+
+
+## Team roles
           Team Leader:                    Jonathan Latkowcer
           Back End Developer:             Ryan Marshall
           Front End Designer:             Mikaela Cotter
           Front End Developer:            Nathan Tam
 
-## Tech Stack
-* HTML, CSS, and JavaScript for the front end.
-* PHP and SQL for the back end.
-* Figma for design prototyping and page mapping.
-
-## Technical Information
-The following are the main pages that make up our website and a brief description of each.
-* `index.php`, the main landing page. Contains the login button and tool explanation.
-* `login.php`, the login page a user sees if they are logged out. Users are not be able to access any other part of the website until they are logged in.
-* `register.php`, the page a user sees if they choose to register from the login page.
-* `search.php`, the page users access to search for books. Contains a search bar in the middle, similar to the Google homepage.
-* `bookshelf.php`, the page users access to see the books they’ve already catalogued.
-
-Our Database Scheme:
-* Users and their logged books are related together with a 'usersbooks' join table.
-* Everytime a user logs a book, a new entry is made into the table with their user ID and the book's ISBN.
-* This way, we can ensure every row is always unique.
+Jonathan Latkowcer and Nathan Tam
+Team Leader and Front End Developer
