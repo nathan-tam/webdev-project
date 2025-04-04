@@ -13,7 +13,8 @@ Database configuration guide (using XAMPP):
 
 Database DML users and books:
 
-The following users are added and can be used to log in. Note that the double-hash of their password is stored in the database.
+As a convenience for testing purposes, the DML.sql file contains a series of placeholder users and books. The following users are added and can be used to log in with their username and password. Note that the database itself stores a double-hashed version of their password.
+
 USERNAME        PASSWORD
 jonathan        password
 nathan          password
