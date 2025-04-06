@@ -10,7 +10,7 @@
         </form>
        <?php }  ?>
         
-    <?php // Sends the user back to the index page. If they're signed in, they'll go back to their bookshelf instead 
+    <?php // Sends the user back to the index page. If they're signed in, the index page will send them to their bookshelf instead 
     ?>
         <h1 id="bookedLogo"><a href="index.php">booked</a></h1>
 </header>

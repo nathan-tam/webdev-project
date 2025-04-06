@@ -18,7 +18,7 @@
     <title>booked</title>
     <meta charset="UTF-8">
     <meta name="author" content="booked development team">
-    <meta name="email" content="bookeddev@algonquincollege.com">
+    <meta name="email" content="latk0004@algonquinlive.com">
     </head>
     <body id="homepageBody">
         <main>

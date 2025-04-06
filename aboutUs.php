@@ -7,7 +7,7 @@
         <title>booked - About Us</title>
         <meta charset="UTF-8">
         <meta name="author" content="booked development team">
-        <meta name="email" content="bookeddev@algonquincollege.com">
+        <meta name="email" content="latk0004@algonquinlive.com">
     </head>
     <body id="background">
         <!-- Header module on all pages (booked logo and rightside link) -->
